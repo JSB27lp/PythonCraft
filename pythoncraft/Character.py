@@ -4,33 +4,28 @@ class Character(CharacterAnimation):
     def __init__(self):
         super().__init__() 
 
-        all_sprites.add(self)
-        characters.append(self)
-
         self.pos = vec((0, 0))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
-        self.jumping = False
-
-        self.dir = ""
+        self.direction = ""
         
     def move(self):
         self.acc = vec(0,0)
                 
-        if self.dir == "left":
+        if self.direction == "left":
             self.acc.x = -ACC
             self.last_dir = "left"
 
-        if self.dir == "right":
+        if self.direction == "right":
             self.acc.x = ACC
             self.last_dir = "right"
 
-        if self.dir == "up":
+        if self.direction == "up":
             self.acc.y = -ACC
             self.last_dir = "up"
 
-        if self.dir == "down":
+        if self.direction == "down":
             self.acc.y = ACC
             self.last_dir = "down"
 
