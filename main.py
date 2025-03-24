@@ -11,12 +11,7 @@ while 1:
 
     P1.checkCollisions()
 
-    events = pygame.event.get()
-    for event in events:
-
-        P1.controls(event)
-    
-    textinput.update(events)
+    P1.controls(pygame.event.get())
     
     display_surf.fill((20,18,18))
 
