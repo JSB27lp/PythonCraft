@@ -33,7 +33,9 @@ infoObject = pygame.display.Info()
 WIDTH = infoObject.current_w
 HEIGHT = infoObject.current_h
 
-charSheet = pygame.image.load("assets/run.png").convert_alpha()
+runSheet = pygame.image.load("assets/run.png").convert_alpha()
+idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
+
 platformSheet = pygame.image.load("assets/sprites/platforms.png").convert_alpha()
 
 all_sprites = pygame.sprite.Group()

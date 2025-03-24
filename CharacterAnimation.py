@@ -4,7 +4,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
 
-        self.surf = charSheet.subsurface((0,0,charSheet.get_width()/8,charSheet.get_height()/3))
+        self.surf = idleSheet.subsurface((0,0,idleSheet.get_width()/8,idleSheet.get_height()/3))
         self.mask = pygame.mask.from_surface(self.surf)
         self.rect = self.surf.get_rect()
 
@@ -32,12 +32,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
             self.idleAnimation()
 
     def runAnimation(self):
-        if self.index_frame_run >= 16:
-            self.surf = charSheet.subsurface((charSheet.get_width()/8*(self.index_frame_run-16),charSheet.get_height()/3*2,charSheet.get_width()/8,charSheet.get_height()/3))
-        elif self.index_frame_run >= 8:
-            self.surf = charSheet.subsurface((charSheet.get_width()/8*(self.index_frame_run-8),charSheet.get_height()/3,charSheet.get_width()/8,charSheet.get_height()/3))
-        else :
-            self.surf = charSheet.subsurface((charSheet.get_width()/8*self.index_frame_run,0,charSheet.get_width()/8,charSheet.get_height()/3))
+        self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*0,runSheet.get_width()/8,runSheet.get_height()/3))
 
         if self.last_dir < 0 :
             self.surf = pygame.transform.flip(self.surf, True, False)
@@ -46,11 +41,11 @@ class CharacterAnimation(pygame.sprite.Sprite):
         if self.current_frame_run >= NB_FRAMES_SWITCH:
             self.current_frame_run = 0
             self.index_frame_run += 1
-            if self.index_frame_run >= 24 :
+            if self.index_frame_run >= 8 :
                 self.index_frame_run = 0  
 
     def idleAnimation(self):
-        self.surf = charSheet.subsurface((charSheet.get_width()/8*self.index_frame_idle,charSheet.get_height()/3*0,charSheet.get_width()/8,charSheet.get_height()/3))
+        self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*0,idleSheet.get_width()/4,idleSheet.get_height()/3))
 
         if self.last_dir < 0 :
             self.surf = pygame.transform.flip(self.surf, True, False)
