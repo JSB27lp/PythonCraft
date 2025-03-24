@@ -5,22 +5,21 @@ from Tile import *
 tile = Tile((0, 0))
 all_sprites.add(tile)
 
-p1 = Character()
-all_sprites.add(p1)
-
 player = Player()
 
 while 1:
 
     player.controls(pygame.event.get())
 
-    player.executeScriptLine(p1)
-    
-    p1.checkCollisions()
+    player.executeScriptLine()
 
     #ajust camera
-    camera.x = p1.pos.x - W_SURF/2
-    camera.y = p1.pos.y - H_SURF/2
+    if len(player.characters)>0:
+        camera.x = player.characters[0].pos.x - W_SURF/2
+        camera.y = player.characters[0].pos.y - H_SURF/2
+    else:
+        camera.x = W_SURF/2
+        camera.y = H_SURF/2
 
     display_surf.fill((20,18,18))
 
