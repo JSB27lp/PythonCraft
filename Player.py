@@ -16,6 +16,5 @@ class Player(Character):
                     pygame.quit()
                     sys.exit()
                 if event.key == pygame.K_RETURN:
-                    print(textinput.value)
                     textinput.value = ""
  

@@ -12,19 +12,20 @@ class Character(CharacterAnimation):
         
     def move(self):
         self.acc = vec(0,0)
-    
-        pressed_keys = pygame.key.get_pressed()
                 
-        if pressed_keys[K_LEFT] or pressed_keys[K_q] :
+        if textinput.value == "p1.left()":
             self.acc.x = -ACC
             self.last_dir = "left"
-        if pressed_keys[K_RIGHT] or pressed_keys[K_d] :
+
+        if textinput.value == "p1.right()":
             self.acc.x = ACC
             self.last_dir = "right"
-        if pressed_keys[K_UP] or pressed_keys[K_z] :
+
+        if textinput.value == "p1.up()":
             self.acc.y = -ACC
             self.last_dir = "up"
-        if pressed_keys[K_DOWN] or pressed_keys[K_s] :
+
+        if textinput.value == "p1.down()":
             self.acc.y = ACC
             self.last_dir = "down"
 
