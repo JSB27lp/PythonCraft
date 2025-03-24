@@ -40,10 +40,8 @@ class Player():
             if self.script_line == "p1.stop()":
                 self.characters[0].dir = ""
                 
-            if self.script_line == "p1.stop()":
-                self.characters[0].dir = ""
         
-        if self.script_line == "p1 = Player()":
+        if self.script_line == "Player()":
             character = Character()
             self.characters.append(character)
             all_sprites.add(character)
