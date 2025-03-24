@@ -18,8 +18,8 @@ while 1:
         camera.x = player.characters[0].pos.x - W_SURF/2
         camera.y = player.characters[0].pos.y - H_SURF/2
     else:
-        camera.x = W_SURF/2
-        camera.y = H_SURF/2
+        camera.x = -W_SURF/2
+        camera.y = -H_SURF/2
 
     display_surf.fill((20,18,18))
 
@@ -28,9 +28,9 @@ while 1:
         entity.move()
         display_surf.blit(entity.surf, (entity.rect.x - camera.x, entity.rect.y - camera.y))
 
-    display_surf.blit(textinput.surface, (10, 10))
-
     screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
+
+    screen.blit(textinput.surface, (W_SCREEN - 400, H_SCREEN - 50))
 
     pygame.display.update()
     FramePerSec.tick(FPS)

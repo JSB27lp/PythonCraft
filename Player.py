@@ -47,4 +47,6 @@ class Player():
             character = Character()
             self.characters.append(character)
             all_sprites.add(character)
+
+        self.script_line == ""
  

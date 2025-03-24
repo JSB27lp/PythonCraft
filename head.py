@@ -8,6 +8,7 @@ pygame.init()
 
 textinput = pygame_textinput.TextInputVisualizer()
 textinput.font_color = (255, 255, 255)
+textinput.cursor_color = (255, 255, 255)
 
 joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_count())]
 
