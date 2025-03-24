@@ -32,6 +32,9 @@ class Player():
 
         if self.script_line == "p1.down()":
             character.dir = "down"
+
+        if self.script_line == "p1.stop()":
+            character.dir = ""
             
         if self.script_line == "p1.stop()":
             character.dir = ""
