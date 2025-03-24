@@ -1,4 +1,4 @@
-from CharacterAnimation import *
+from pythoncraft.CharacterAnimation import *
 
 class Character(CharacterAnimation):
     def __init__(self):

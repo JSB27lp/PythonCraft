@@ -1,36 +1,34 @@
-from Player import *
-from Character import *
-from Tile import *
+from pythoncraft.game import *
 
-tile = Tile((0, 0))
-all_sprites.add(tile)
+script_array = []
 
-player = Player()
+"""
+script_array.append('c1 = Character()')
+script_array.append()
+script_array.append('c1.direction = "right"')
+script_array.append()
+script_array.append('c2 = Character() ')
+script_array.append()
+script_array.append('c2.direction = "left"')
+script_array.append()
+script_array.append('cameraSwitch(c1)')
+script_array.append()
+script_array.append('c1.direction = ""')
+script_array.append()
+script_array.append('c1.run = True')
+script_array.append()
+script_array.append('c1.direction = "left"')
+script_array.append()
+script_array.append('print(c1.getPos())')
+script_array.append()
+script_array.append('list_characters = getCharacters()')
+script_array.append()
+script_array.append()
+script_array.append()
+script_array.append()
+script_array.append('print("mayonnaise")')
+"""
 
-while 1:
+script_array.append('print("mayonnaise")')
 
-    player.controls(pygame.event.get())
-
-    player.executeScriptLine()
-
-    #ajust camera
-    if len(player.characters)>0:
-        camera.x = player.characters[0].pos.x - W_SURF/2
-        camera.y = player.characters[0].pos.y - H_SURF/2
-    else:
-        camera.x = -W_SURF/2
-        camera.y = -H_SURF/2
-
-    display_surf.fill((20,18,18))
-
-    #deplacer les sprites 
-    for entity in all_sprites:
-        entity.move()
-        display_surf.blit(entity.surf, (entity.rect.x - camera.x, entity.rect.y - camera.y))
-
-    screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
-
-    screen.blit(textinput.surface, (W_SCREEN - 400, H_SCREEN - 50))
-
-    pygame.display.update()
-    FramePerSec.tick(FPS)
+start(script_array)

@@ -1,4 +1,4 @@
-from head import *
+from pythoncraft.head import *
 
 class CharacterAnimation(pygame.sprite.Sprite):
     def __init__(self):

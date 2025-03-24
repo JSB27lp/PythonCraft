@@ -1,15 +1,10 @@
-from head import *
-from Character import *
+from pythoncraft.head import *
 
 class Player():
     def __init__(self):
         super().__init__()
-        self.script_line = "" 
-
-        self.characters = [] 
 
     def controls(self,events):
-        textinput.update(events)
 
         for event in events:
             if event.type == QUIT:
@@ -19,10 +14,9 @@ class Player():
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
-                if event.key == pygame.K_RETURN:
-                    self.script_line = textinput.value
-                    textinput.value = ""
 
+    '''a supprimer cest juste pour garder le code temporairement
+    
     def executeScriptLine(self):
         if len(self.characters)>0:
             if self.script_line == "p1.left()":
@@ -47,4 +41,6 @@ class Player():
             all_sprites.add(character)
 
         self.script_line == ""
+        
+        '''
  
