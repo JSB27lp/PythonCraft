@@ -39,6 +39,7 @@ idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
 tilesetSheet = pygame.image.load("assets/tileset.png").convert_alpha()
 
 all_sprites = pygame.sprite.Group()
+characters = []
 
 
 

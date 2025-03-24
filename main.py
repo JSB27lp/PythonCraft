@@ -28,7 +28,8 @@ script_array.append()
 script_array.append()
 script_array.append('print("mayonnaise")')
 """
-
+script_array.append('c1 = Character()')
+script_array.append("")
 script_array.append('print("mayonnaise")')
 
 start(script_array)

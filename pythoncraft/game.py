@@ -1,5 +1,6 @@
 from pythoncraft.Player import *
 from pythoncraft.Tile import *
+from pythoncraft.Character import *
 
 def start(script_array):
     tile = Tile((0, 0))
@@ -18,15 +19,12 @@ def start(script_array):
         player.controls(pygame.event.get())
 
         #ajust camera
-        '''if len(player.characters)>0:
-            camera.x = player.characters[0].pos.x - W_SURF/2
-            camera.y = player.characters[0].pos.y - H_SURF/2
+        if len(characters)>0:
+            camera.x = characters[0].pos.x - W_SURF/2
+            camera.y = characters[0].pos.y - H_SURF/2
         else:
             camera.x = -W_SURF/2
-            camera.y = -H_SURF/2'''
-        
-        camera.x = -W_SURF/2
-        camera.y = -H_SURF/2
+            camera.y = -H_SURF/2
 
         display_surf.fill((20,18,18))
 

@@ -3,7 +3,10 @@ from pythoncraft.CharacterAnimation import *
 class Character(CharacterAnimation):
     def __init__(self):
         super().__init__() 
-   
+
+        all_sprites.add(self)
+        characters.append(self)
+
         self.pos = vec((0, 0))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
