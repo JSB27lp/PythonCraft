@@ -1,23 +1,28 @@
 from Player import *
+from Character import *
 from Tile import *
 
 tile = Tile((0, 0))
 all_sprites.add(tile)
 
-P1 = Player()
-all_sprites.add(P1)
+p1 = Character()
+all_sprites.add(p1)
+
+player = Player()
 
 while 1:
 
-    P1.checkCollisions()
+    player.controls(pygame.event.get())
 
-    P1.controls(pygame.event.get())
+    player.executeScriptLine(p1)
     
-    display_surf.fill((20,18,18))
+    p1.checkCollisions()
 
     #ajust camera
-    camera.x = P1.pos.x - W_SURF/2
-    camera.y = P1.pos.y - H_SURF/2
+    camera.x = p1.pos.x - W_SURF/2
+    camera.y = p1.pos.y - H_SURF/2
+
+    display_surf.fill((20,18,18))
 
     #deplacer les sprites 
     for entity in all_sprites:

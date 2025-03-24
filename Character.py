@@ -9,23 +9,25 @@ class Character(CharacterAnimation):
         self.acc = vec(0,0)
 
         self.jumping = False
+
+        self.dir = ""
         
     def move(self):
         self.acc = vec(0,0)
                 
-        if textinput.value == "p1.left()":
+        if self.dir == "left":
             self.acc.x = -ACC
             self.last_dir = "left"
 
-        if textinput.value == "p1.right()":
+        if self.dir == "right":
             self.acc.x = ACC
             self.last_dir = "right"
 
-        if textinput.value == "p1.up()":
+        if self.dir == "up":
             self.acc.y = -ACC
             self.last_dir = "up"
 
-        if textinput.value == "p1.down()":
+        if self.dir == "down":
             self.acc.y = ACC
             self.last_dir = "down"
 
