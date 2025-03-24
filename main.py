@@ -22,10 +22,7 @@ while 1:
     for event in pygame.event.get():
         P1.controls(event)
 
-    if (P1.rect.y - camera.y) > H_SURF*0.5:
-        P1.respawn()
-
-    if P1.editMode:
+    if 1:
         display_surf.fill((0,0,0))
         pygame.mouse.set_visible(True) # Show cursor here
     else :

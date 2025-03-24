@@ -4,8 +4,6 @@ class Player(Character):
     def __init__(self):
         super().__init__()  
 
-        self.editMode = False
-
     def controls(self,event):
         if event.type == QUIT:
             pygame.quit()
@@ -14,11 +12,4 @@ class Player(Character):
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
-            if event.key == pygame.K_SPACE or event.key == pygame.K_z or event.key == pygame.K_UP:
-                self.jump()
-        if event.type == pygame.KEYUP:   
-            if event.key == pygame.K_SPACE or event.key == pygame.K_z or event.key == pygame.K_UP:
-                self.cancel_jump()
-            if event.key == pygame.K_r:
-                self.editMode = not self.editMode
  
