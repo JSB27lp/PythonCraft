@@ -11,15 +11,14 @@ while 1:
 
     P1.checkCollisions()
 
-    for event in pygame.event.get():
-        P1.controls(event)
+    events = pygame.event.get()
+    for event in events:
 
-    if 1:
-        display_surf.fill((20,18,18))
-        pygame.mouse.set_visible(True) # Show cursor here
-    else :
-        display_surf.fill((90,192,255))
-        pygame.mouse.set_visible(False) # Hide cursor here
+        P1.controls(event)
+    
+    textinput.update(events)
+    
+    display_surf.fill((20,18,18))
 
     #ajust camera
     camera.x = P1.pos.x - W_SURF/2
@@ -29,6 +28,8 @@ while 1:
     for entity in all_sprites:
         entity.move()
         display_surf.blit(entity.surf, (entity.rect.x - camera.x, entity.rect.y - camera.y))
+
+    display_surf.blit(textinput.surface, (10, 10))
 
     screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
 

@@ -1,9 +1,13 @@
+import pygame_textinput
 import pygame
 from pygame.locals import *
 import random
 import sys
 
 pygame.init()
+
+textinput = pygame_textinput.TextInputVisualizer()
+textinput.font_color = (255, 255, 255)
 
 joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_count())]
 
@@ -27,7 +31,7 @@ display_surf = pygame.surface.Surface((W_SURF, H_SURF))
 
 NB_FRAMES_SWITCH = 8
 
-pygame.mouse.set_visible(False) # Hide cursor here
+pygame.mouse.set_visible(True) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
 infoObject = pygame.display.Info()
 WIDTH = infoObject.current_w
@@ -36,7 +40,7 @@ HEIGHT = infoObject.current_h
 runSheet = pygame.image.load("assets/run.png").convert_alpha()
 idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
 
-platformSheet = pygame.image.load("assets/tileset.png").convert_alpha()
+tilesetSheet = pygame.image.load("assets/tileset.png").convert_alpha()
 
 all_sprites = pygame.sprite.Group()
 
