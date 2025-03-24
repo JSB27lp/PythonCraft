@@ -20,7 +20,7 @@ FramePerSec = pygame.time.Clock()
  
 W_SCREEN = 1920
 H_SCREEN = 1080
-screen = pygame.display.set_mode((W_SCREEN, H_SCREEN),pygame.NOFRAME,32)
+screen = pygame.display.set_mode((W_SCREEN, H_SCREEN))
 W_SURF = 640
 H_SURF = 360
 display_surf = pygame.surface.Surface((W_SURF, H_SURF))
@@ -28,7 +28,7 @@ display_surf = pygame.surface.Surface((W_SURF, H_SURF))
 NB_FRAMES_SWITCH = 8
 
 pygame.mouse.set_visible(False) # Hide cursor here
-pygame.display.set_caption("GameEngine")
+pygame.display.set_caption("PythonCraft")
 infoObject = pygame.display.Info()
 WIDTH = infoObject.current_w
 HEIGHT = infoObject.current_h
