@@ -8,7 +8,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.surf)
         self.rect = self.surf.get_rect()
 
-        self.last_dir = 0
+        self.last_dir = "right"
 
         self.index_frame_idle = 0 #that keeps track on the current index of the image list.
         self.current_frame_idle = 0 #that keeps track on the current time or current frame since last the index switched. 
@@ -32,10 +32,15 @@ class CharacterAnimation(pygame.sprite.Sprite):
             self.idleAnimation()
 
     def runAnimation(self):
-        self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*0,runSheet.get_width()/8,runSheet.get_height()/3))
-
-        if self.last_dir < 0 :
+        if self.last_dir == "right" :
+            self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*0,runSheet.get_width()/8,runSheet.get_height()/3))
+        elif self.last_dir == "left" :
+            self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*0,runSheet.get_width()/8,runSheet.get_height()/3))
             self.surf = pygame.transform.flip(self.surf, True, False)
+        elif self.last_dir == "up" :
+            self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*2,runSheet.get_width()/8,runSheet.get_height()/3))
+        elif self.last_dir == "down" :
+            self.surf = runSheet.subsurface((runSheet.get_width()/8*self.index_frame_run,runSheet.get_height()/3*1,runSheet.get_width()/8,runSheet.get_height()/3))
 
         self.current_frame_run += 1
         if self.current_frame_run >= NB_FRAMES_SWITCH:
@@ -45,10 +50,15 @@ class CharacterAnimation(pygame.sprite.Sprite):
                 self.index_frame_run = 0  
 
     def idleAnimation(self):
-        self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*0,idleSheet.get_width()/4,idleSheet.get_height()/3))
-
-        if self.last_dir < 0 :
+        if self.last_dir == "right" :
+            self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*0,idleSheet.get_width()/4,idleSheet.get_height()/3))
+        elif self.last_dir == "left" :
+            self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*0,idleSheet.get_width()/4,idleSheet.get_height()/3))
             self.surf = pygame.transform.flip(self.surf, True, False)
+        elif self.last_dir == "up" :
+            self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*2,idleSheet.get_width()/4,idleSheet.get_height()/3))
+        elif self.last_dir == "down" :
+            self.surf = idleSheet.subsurface((idleSheet.get_width()/4*self.index_frame_idle,idleSheet.get_height()/3*1,idleSheet.get_width()/4,idleSheet.get_height()/3))
 
         self.current_frame_idle += 1
         if self.current_frame_idle >= NB_FRAMES_SWITCH:

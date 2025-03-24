@@ -17,16 +17,16 @@ class Character(CharacterAnimation):
                 
         if pressed_keys[K_LEFT] or pressed_keys[K_q] :
             self.acc.x = -ACC
-            self.last_dir = -1
+            self.last_dir = "left"
         if pressed_keys[K_RIGHT] or pressed_keys[K_d] :
             self.acc.x = ACC
-            self.last_dir = 1
+            self.last_dir = "right"
         if pressed_keys[K_UP] or pressed_keys[K_z] :
             self.acc.y = -ACC
-            self.last_dir = -1
+            self.last_dir = "up"
         if pressed_keys[K_DOWN] or pressed_keys[K_s] :
             self.acc.y = ACC
-            self.last_dir = 1
+            self.last_dir = "down"
 
         self.animate()
                  
