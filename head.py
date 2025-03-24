@@ -36,10 +36,9 @@ HEIGHT = infoObject.current_h
 runSheet = pygame.image.load("assets/run.png").convert_alpha()
 idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
 
-platformSheet = pygame.image.load("assets/sprites/platforms.png").convert_alpha()
+platformSheet = pygame.image.load("assets/tileset.png").convert_alpha()
 
 all_sprites = pygame.sprite.Group()
-platforms = pygame.sprite.Group()
 
 
 

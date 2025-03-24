@@ -37,8 +37,9 @@ class Character(CharacterAnimation):
         self.rect.midbottom = self.pos
  
     def checkCollisions(self):
-        if self.vel.y > 0:    
+        pass
+        '''if self.vel.y > 0:    
             collide = pygame.sprite.spritecollide(self, platforms, False, pygame.sprite.collide_mask)
             if collide:
-                pass
+                pass'''
 

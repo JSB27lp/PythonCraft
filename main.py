@@ -1,19 +1,11 @@
 from Player import *
-from Platform import *
+from Tile import *
+
+tile = Tile((0, 0))
+all_sprites.add(tile)
 
 P1 = Player()
 all_sprites.add(P1)
-
-for i in range(0,20):
-    PT = Platform((i*16, 50))
-    all_sprites.add(PT)
-    platforms.add(PT)
-
-for i in range(0,10):
-    PT = Platform((i*16+16*22, -50))
-    all_sprites.add(PT)
-    platforms.add(PT)
-
 
 while 1:
 
@@ -23,7 +15,7 @@ while 1:
         P1.controls(event)
 
     if 1:
-        display_surf.fill((0,0,0))
+        display_surf.fill((20,18,18))
         pygame.mouse.set_visible(True) # Show cursor here
     else :
         display_surf.fill((90,192,255))
