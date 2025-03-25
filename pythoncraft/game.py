@@ -1,19 +1,36 @@
 from pythoncraft.Tile import *
 from pythoncraft.Character import *
- 
-def start():
-    all_sprites = pygame.sprite.Group()
-    characters = []
+import random
 
+all_sprites = pygame.sprite.Group()
+characters = []
+
+def mapGeneration():
     tile = Tile((0, 0))
     all_sprites.add(tile)
 
+def addCharacter():
     character = Character()
     characters.append(character)
     all_sprites.add(character)
+ 
+def start():
+
+    mapGeneration()
+
+
+    #<---------- HERE IS THE SCRIPT
+    #add one character in characters array
+    addCharacter()
 
     while 1:
 
+        mylist = ["up", "down", "right", "left"]
+        characters[0].direction = random.choice(mylist)
+        #END OF THE SCRIPT ------------>
+
+        
+        #if quit event, exit the game
         events = pygame.event.get()
         for event in events:
             if event.type == QUIT:
@@ -24,17 +41,9 @@ def start():
                     pygame.quit()
                     sys.exit()
 
-        #<-- HERE IS THE SCRIPT
-
-        #END OF THE SCRIPT -->
-
         #Adjust camera
-        if(len(characters)==0):
-            camera.x = -W_SURF/2
-            camera.y = -H_SURF/2
-        else:
-            camera.x = characters[0].pos.x - W_SURF/2
-            camera.y = characters[0].pos.y - H_SURF/2
+        camera.x = characters[0].pos.x - W_SURF/2
+        camera.y = characters[0].pos.y - H_SURF/2
 
         #Background color of the display
         display_surf.fill((20,18,18))
