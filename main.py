@@ -10,7 +10,12 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 
     for i in range(10):
-        addCharacter()
+        character = Hacker()
+        addCharacter(character)
+
+    for i in range(10):
+        character = Agent()
+        addCharacter(character)
         
     characters[0].setName("Accident1") #X ignore this line and do not touch
 
@@ -174,8 +179,7 @@ def mapGeneration():
         all_sprites.add(tile)
         tiles_group.add(tile)
 
-def addCharacter():
-    character = Character()
+def addCharacter(character):
     characters.append(character)
     all_sprites.add(character)
 

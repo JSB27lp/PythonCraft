@@ -69,5 +69,9 @@ class Politician(Character):
     def __init__(self):
         super().__init__()
 
+class Peon(Character):
+    def __init__(self):
+        super().__init__()
+
      
 
