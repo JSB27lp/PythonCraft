@@ -66,9 +66,15 @@ def start():
 
 def mapGeneration():
     for i in range(10):
-        tile = Tile((i*TILE_SIZE, 0), wall_cave_img)
+        chance = random.randint(0,1)
+        if chance :
+            tile = Tile((i*TILE_SIZE, 0), wall_cave_img)
+        else : 
+            tile = Tile((i*TILE_SIZE, 0), ground_cave_img)
+
         all_sprites.add(tile)
         tiles_group.add(tile)
+
 
 def addCharacter():
     character = Character()

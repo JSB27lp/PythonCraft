@@ -34,7 +34,7 @@ run_sheet = pygame.image.load("assets/run.png").convert_alpha()
 idle_sheet = pygame.image.load("assets/idle.png").convert_alpha()
 
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
-ground_gave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
+ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
 TILE_SIZE = 16
 
