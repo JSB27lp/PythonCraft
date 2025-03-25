@@ -1,22 +1,10 @@
 from pythoncraft.Tile import *
 from pythoncraft.Character import *
 import random
-
-def mapGeneration():
-    for i in range(10):
-        tile = Tile((i*TILE_SIZE, 0))
-        all_sprites.add(tile)
-        tiles_group.add(tile)
-
-def addCharacter():
-    character = Character()
-    characters.append(character)
-    all_sprites.add(character)
  
 def start():
 
     mapGeneration()
-
 
     #<---------- HERE IS THE SCRIPT INIT
 
@@ -36,9 +24,13 @@ def start():
 
         #END OF THE SCRIPT LOOP ------------>
 
+        #START game internal mechanics
+
         for character in characters:
             character.checkCollisions()
-        
+
+        #END game internal mechanics
+
         #if quit event, exit the game
         events = pygame.event.get()
         for event in events:
@@ -72,6 +64,14 @@ def start():
         pygame.display.update()
         FramePerSec.tick(FPS)
 
+def mapGeneration():
+    for i in range(10):
+        tile = Tile((i*TILE_SIZE, 0))
+        all_sprites.add(tile)
+        tiles_group.add(tile)
 
-
+def addCharacter():
+    character = Character()
+    characters.append(character)
+    all_sprites.add(character)
 
