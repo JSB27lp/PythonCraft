@@ -36,6 +36,8 @@ def start():
 
         #END OF THE SCRIPT LOOP ------------>
 
+        for character in characters:
+            character.checkCollisions()
         
         #if quit event, exit the game
         events = pygame.event.get()
