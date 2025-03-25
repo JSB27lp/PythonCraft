@@ -25,7 +25,8 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         for character in characters:
             mylist = ["up", "down", "right", "left"]
-            character.direction = random.choice(mylist)
+            direction = random.choice(mylist)
+            character.setDirection(direction)
 
 
 

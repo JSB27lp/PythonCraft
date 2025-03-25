@@ -16,6 +16,9 @@ class Character(CharacterAnimation):
 
     def setName(self, name):
         self.name = Text(name, (255,255,255), 8, (0, 0))
+
+    def setDirection(self,direction):
+        self.direction = direction
         
     def move(self):
         self.acc = vec(0,0)
