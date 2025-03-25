@@ -1,4 +1,5 @@
 from pythoncraft.head import *
+from pythoncraft.Util import *
 
 class CharacterAnimation(pygame.sprite.Sprite):
     def __init__(self):
@@ -72,3 +73,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
         
         display_surf.blit(self.name.surf, (self.rect.x - camera.x, self.rect.y+20 - camera.y))        
+
+
+        exp_txt = Text(str(self.exp), (0,255,255), 6, (0, 0))
+        display_surf.blit(exp_txt.surf, (self.rect.x - camera.x, self.rect.y+15 - camera.y)) 

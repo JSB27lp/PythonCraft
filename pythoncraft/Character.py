@@ -9,13 +9,17 @@ class Character(CharacterAnimation):
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
+        self.exp = 0
+
         self.direction = ""
 
+        
         chance = random.randint(0,999)
-        self.name = Text("Smith-"+str(chance), (255,255,255), 8, (0, 0))
-
-    def setName(self, name):
-        self.name = Text(name, (255,255,255), 8, (0, 0))
+        self.name = None
+        if type(self) is Agent:
+            self.name = Text("Agent-"+str(chance), (255,255,255), 8, (0, 0))
+        if type(self) is Hacker:
+            self.name = Text("Hacker-"+str(chance), (0,255,0), 8, (0, 0))
 
     def setDirection(self,direction):
         self.direction = direction

@@ -9,6 +9,10 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 
 
+
+
+
+
     for i in range(10):
         character = Hacker()
         addCharacter(character)
@@ -16,17 +20,15 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
     for i in range(10):
         character = Agent()
         addCharacter(character)
-        
-    characters[0].setName("Accident1") #X ignore this line and do not touch
-
 
     while 1: 
-
 
         for character in characters:
             mylist = ["up", "down", "right", "left"]
             direction = random.choice(mylist)
             character.setDirection(direction)
+
+            
 
 
 
@@ -123,6 +125,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         for character in characters:
             character.checkCollisions()
+            character.exp += 1
 
         #END game internal mechanics
 
