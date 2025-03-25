@@ -43,8 +43,8 @@ def start():
                     sys.exit()
 
         #Adjust camera
-        camera.x = characters[0].pos.x - W_SURF/2 + ((idleSheet.get_width()/8)/2)
-        camera.y = characters[0].pos.y - H_SURF/2 - ((idleSheet.get_height()/3)/2)
+        camera.x = characters[0].pos.x - W_SURF/2 + ((idle_sheet.get_width()/8)/2)
+        camera.y = characters[0].pos.y - H_SURF/2 - ((idle_sheet.get_height()/3)/2)
 
         #Background color of the display
         display_surf.fill((55,63,61))

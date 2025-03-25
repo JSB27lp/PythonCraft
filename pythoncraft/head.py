@@ -30,15 +30,11 @@ H_SURF = 360
 display_surf = pygame.surface.Surface((W_SURF, H_SURF))
 
 #load assets
-runSheet = pygame.image.load("assets/run.png").convert_alpha()
-idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
+run_sheet = pygame.image.load("assets/run.png").convert_alpha()
+idle_sheet = pygame.image.load("assets/idle.png").convert_alpha()
 
-tilesetSheet1 = pygame.image.load("assets/tileset/1.png").convert_alpha()
-tilesetSheet2 = pygame.image.load("assets/tileset/2.png").convert_alpha()
-tilesetSheet3 = pygame.image.load("assets/tileset/3.png").convert_alpha()
-tilesetSheet4 = pygame.image.load("assets/tileset/4.png").convert_alpha()
-tilesetSheet5 = pygame.image.load("assets/tileset/5.png").convert_alpha()
-tilesetSheet6 = pygame.image.load("assets/tileset/6.png").convert_alpha()
+wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
+ground_gave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
 TILE_SIZE = 16
 
