@@ -42,6 +42,9 @@ tilesetSheet6 = pygame.image.load("assets/tileset/6.png").convert_alpha()
 
 TILE_SIZE = 16
 
+all_sprites = pygame.sprite.Group()
+characters = []
+tiles_group = pygame.sprite.Group()
 
 class Text(pygame.sprite.Sprite):
     def __init__(self,txt,color,size,pos, font = 'Lucida Console'):

@@ -2,13 +2,11 @@ from pythoncraft.Tile import *
 from pythoncraft.Character import *
 import random
 
-all_sprites = pygame.sprite.Group()
-characters = []
-
 def mapGeneration():
     for i in range(10):
         tile = Tile((i*TILE_SIZE, 0))
         all_sprites.add(tile)
+        tiles_group.add(tile)
 
 def addCharacter():
     character = Character()
