@@ -34,10 +34,6 @@ runSheet = pygame.image.load("assets/run.png").convert_alpha()
 idleSheet = pygame.image.load("assets/idle.png").convert_alpha()
 tilesetSheet = pygame.image.load("assets/tileset.png").convert_alpha()
 
-#set variables for the game
-all_sprites = pygame.sprite.Group()
-characters = {}
-name_character_for_camera = ""
 
 
 
