@@ -66,3 +66,9 @@ class CharacterAnimation(pygame.sprite.Sprite):
             self.index_frame_idle += 1
             if self.index_frame_idle >= 4 :
                 self.index_frame_idle = 0  
+
+    def display(self,camera):
+        display_surf.blit(self.surf, (self.rect.x - camera.x, self.rect.y - camera.y))
+
+        
+        display_surf.blit(self.name.surf, (self.rect.x - camera.x, self.rect.y+20 - camera.y))        

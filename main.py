@@ -1,15 +1,18 @@
-from pythoncraft.Tile import * #ignore this line and do not touch
-from pythoncraft.Character import * #ignore this line and do not touch
-import random #ignore this line and do not touch
+from pythoncraft.Tile import * #X ignore this line and do not touchX X X X X X X 
+from pythoncraft.Character import * #X ignore this line and do not touchX X X X X X X 
+from pythoncraft.Util import * #X ignore this line and do not touchX X X X X X X X X X 
+import random #X ignore this line and do not touchX X X X X X X X X X X X X X X X X 
  
-def start(): #ignore this line and do not touch
+def start(): #X ignore this line and do not touchX X X X X X X X X X X X X 
 
-    mapGeneration() #ignore this line and do not touch
+    mapGeneration() #X ignore this line and do not touchX X X X X X X X X X X X 
 
 
-    #add one character in characters array
+
     for i in range(10):
         addCharacter()
+        
+    characters[0].setName("Accident1") #X ignore this line and do not touch
 
 
     while 1: 
@@ -24,7 +27,30 @@ def start(): #ignore this line and do not touch
 
 
 
-        #STOP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #STOP X X X X X X X X X X X X X X X X X X X X X X X X 
 
 
 
@@ -125,8 +151,8 @@ def start(): #ignore this line and do not touch
         #move and display all sprites
         for entity in all_sprites:
             entity.move()
-            display_surf.blit(entity.surf, (entity.rect.x - camera.x, entity.rect.y - camera.y))
-
+            entity.display(camera)
+            
         #blit the display_surf to the screen with scaling
         screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
 

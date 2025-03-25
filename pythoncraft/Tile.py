@@ -10,3 +10,7 @@ class Tile(pygame.sprite.Sprite):
 
     def move(self):
         pass
+
+    def display(self,camera):
+        display_surf.blit(self.surf, (self.rect.x - camera.x, self.rect.y - camera.y))
+
