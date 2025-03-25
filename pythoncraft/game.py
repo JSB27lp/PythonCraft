@@ -66,7 +66,7 @@ def start():
 
 def mapGeneration():
     for i in range(10):
-        tile = Tile((i*TILE_SIZE, 0))
+        tile = Tile((i*TILE_SIZE, 0), wall_cave_img)
         all_sprites.add(tile)
         tiles_group.add(tile)
 
