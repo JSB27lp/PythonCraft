@@ -19,15 +19,23 @@ def start():
     mapGeneration()
 
 
-    #<---------- HERE IS THE SCRIPT
+    #<---------- HERE IS THE SCRIPT INIT
+
     #add one character in characters array
-    addCharacter()
+    for i in range(10):
+        addCharacter()
+
+    #END OF THE SCRIPT INIT ------------>
 
     while 1:
 
-        mylist = ["up", "down", "right", "left"]
-        characters[0].direction = random.choice(mylist)
-        #END OF THE SCRIPT ------------>
+        #<---------- HERE IS THE SCRIPT LOOP
+
+        for character in characters:
+            mylist = ["up", "down", "right", "left"]
+            character.direction = random.choice(mylist)
+
+        #END OF THE SCRIPT LOOP ------------>
 
         
         #if quit event, exit the game
