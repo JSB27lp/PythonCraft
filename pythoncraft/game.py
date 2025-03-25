@@ -6,8 +6,9 @@ all_sprites = pygame.sprite.Group()
 characters = []
 
 def mapGeneration():
-    tile = Tile((0, 0))
-    all_sprites.add(tile)
+    for i in range(10):
+        tile = Tile((i*TILE_SIZE, 0))
+        all_sprites.add(tile)
 
 def addCharacter():
     character = Character()
@@ -54,7 +55,7 @@ def start():
         camera.y = characters[0].pos.y - H_SURF/2 - ((idleSheet.get_height()/3)/2)
 
         #Background color of the display
-        display_surf.fill((20,18,18))
+        display_surf.fill((55,63,61))
 
         #move and display all sprites
         for entity in all_sprites:
@@ -63,6 +64,9 @@ def start():
 
         #blit the display_surf to the screen with scaling
         screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
+
+        show_fps = Text(str(int(FramePerSec.get_fps())),(255,255,255),20,(20,15))
+        show_fps.display(screen)
 
         #update the display
         pygame.display.update()
