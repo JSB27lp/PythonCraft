@@ -14,7 +14,7 @@ pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 
 #set global variable for character
 ACC = 0.5
-FRIC = -0.12
+FRIC = -0.2
 FPS = 60
 NB_FRAMES_SWITCH = 8
  

@@ -205,7 +205,11 @@ def setCamera():
 def mapGeneration():
     for y in range(-4,5):
         for x in range(-4,5):
-            tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
+            chance = random.randint(0,3)
+            if not chance :
+                tile = Tile((x*TILE_SIZE, y*TILE_SIZE), wall_cave_img)
+            else :
+                tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
             all_sprites.add(tile)
             all_tiles.add(tile)
             all_grounds.add(tile)
