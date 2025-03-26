@@ -170,7 +170,7 @@ def start():
         #if quit event, exit the game
         events = pygame.event.get()
         for event in events:
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:  
@@ -193,7 +193,8 @@ def start():
         show_fps.display(screen)
 
         #update the display
-        pygame.display.update()
+        #pygame.display.update()
+        pygame.display.flip()
         FramePerSec.tick(FPS)
 
 def setCamera():

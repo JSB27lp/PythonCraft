@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 import random
 import sys
 
@@ -15,12 +14,13 @@ pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 #set global variable for character
 ACC = 0.5
 FRIC = -0.2
-FPS = 60
+FPS = 165
 NB_FRAMES_SWITCH = 8
  
 #set screen
 screen = pygame.display.set_mode((1920, 1080))
 infoObject = pygame.display.Info()
+print(infoObject)
 W_SCREEN = infoObject.current_w
 H_SCREEN = infoObject.current_h
 
