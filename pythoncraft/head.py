@@ -54,7 +54,7 @@ all_characters = pygame.sprite.Group()
 characters = []
 
 all_tiles = pygame.sprite.Group()
-all_grounds = pygame.sprite.Group()
+all_walls = pygame.sprite.Group()
 
 
 

@@ -68,12 +68,12 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
 
-        if not self.collideGround():
+        if not self.collideWall():
             self.rect.midbottom = last_pos
             self.pos = last_pos
 
-    def collideGround(self):
-        collide = pygame.sprite.spritecollide(self, all_grounds, False, pygame.sprite.collide_mask)
+    def collideWall(self):
+        collide = pygame.sprite.spritecollide(self, all_walls, False, pygame.sprite.collide_mask)
         return collide
  
     def collide(self):
