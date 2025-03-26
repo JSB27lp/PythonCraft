@@ -42,7 +42,7 @@ idle_sheets = [idle_sheet_black,idle_sheet]
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
-TILE_SIZE = 16
+TILE_SIZE = 42
 
 all_sprites = pygame.sprite.Group()
 all_white_characters = pygame.sprite.Group()

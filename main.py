@@ -10,7 +10,7 @@ def start():
     cpt_frames = 0
     neo = Hacker(True)
 
-    for i in range(10):
+    for i in range(5):
         character = Hacker(True)
         character = Agent(True)
         character = Peon(True)
@@ -18,7 +18,7 @@ def start():
 
     #black part -->
     cpt_framesbis = 0
-    for i in range(10):
+    for i in range(5):
         character = Hacker(False)
         character = Agent(False)
         character = Peon(False)
@@ -205,15 +205,11 @@ def setCamera():
         camera.y += 3
 
 def mapGeneration():
-    for i in range(10):
-        chance = random.randint(0,1)
-        if chance :
-            tile = Tile((i*TILE_SIZE, 0), wall_cave_img)
-        else : 
-            tile = Tile((i*TILE_SIZE, 0), ground_cave_img)
-
-        all_sprites.add(tile)
-        all_tiles.add(tile)
+    for y in range(10):
+        for x in range(10):
+            tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
+            all_sprites.add(tile)
+            all_tiles.add(tile)
 
 
 mapGeneration() 
