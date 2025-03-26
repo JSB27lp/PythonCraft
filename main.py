@@ -32,11 +32,13 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
             direction = random.choice(mylist)
             character.setDirection(direction)
 
-            neo.tryKill(character)  
+              
 
         setCamera(neo)#once per loop, more is useless
 
-          
+        characters_neo_collide = neo.collide()
+        for character in characters_neo_collide :
+            character.kill()
 
 
 

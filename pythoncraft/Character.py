@@ -51,12 +51,10 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
  
-    def tryKill(self,character):
-        #collide = pygame.sprite.spritecollide(self, character, False, pygame.sprite.collide_mask)
-        collide = pygame.sprite.collide_mask(self, character)
-        if collide :
-            if self.exp > character.exp :
-                character.kill()
+    def collide(self):
+        collide = pygame.sprite.spritecollide(self, all_characters, False, pygame.sprite.collide_mask)
+        #collide = pygame.sprite.collide_mask(self, character)
+        return collide
 
 
 class Hacker(Character):
