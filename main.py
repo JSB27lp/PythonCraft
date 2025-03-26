@@ -2,7 +2,7 @@ from pythoncraft.Character import *
 
 def start(): 
     #########################################
-    #script for controlling yours characters#
+    #script for controlling your characters#
     #########################################
 
 
