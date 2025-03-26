@@ -184,8 +184,15 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 def setCamera():
     mousex, mousey = pygame.mouse.get_pos()
-    camera.x = mousex-W_SURF/2
-    camera.y = mousey-H_SURF/2
+    if mousex < W_SCREEN*0.2 :
+        camera.x -= 3
+    if mousex > W_SCREEN*0.8:
+        camera.x += 3
+    
+    if mousey < H_SCREEN*0.2 :
+        camera.y -= 3
+    if mousey > H_SCREEN*0.8:
+        camera.y += 3
 
 def mapGeneration():
     for i in range(10):

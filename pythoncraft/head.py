@@ -10,7 +10,6 @@ vec = pygame.math.Vector2 #2 for two dimensional
 FramePerSec = pygame.time.Clock()
 pygame.mouse.set_visible(True) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
-camera = vec(0,0)
 pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 
 #set global variable for character
@@ -29,6 +28,8 @@ H_SCREEN = infoObject.current_h
 W_SURF = 640
 H_SURF = 360
 display_surf = pygame.surface.Surface((W_SURF, H_SURF))
+
+camera = vec(-W_SURF/2,-H_SURF/2)
 
 #load assets
 run_sheet = pygame.image.load("assets/run.png").convert_alpha()
