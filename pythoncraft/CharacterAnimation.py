@@ -4,7 +4,7 @@ from pythoncraft.Util import *
 class CharacterAnimation(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-
+            
         self.surf = idle_sheet.subsurface((0,0,idle_sheet.get_width()/8,idle_sheet.get_height()/3))
         self.mask = pygame.mask.from_surface(self.surf)
         self.rect = self.surf.get_rect(midbottom = self.pos)
@@ -34,14 +34,14 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
     def runAnimation(self):
         if self.last_dir == "right" :
-            self.surf = run_sheet.subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*0,run_sheet.get_width()/8,run_sheet.get_height()/3))
+            self.surf = run_sheets[self.white].subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*0,run_sheet.get_width()/8,run_sheet.get_height()/3))
         elif self.last_dir == "left" :
-            self.surf = run_sheet.subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*0,run_sheet.get_width()/8,run_sheet.get_height()/3))
+            self.surf = run_sheets[self.white].subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*0,run_sheet.get_width()/8,run_sheet.get_height()/3))
             self.surf = pygame.transform.flip(self.surf, True, False)
         elif self.last_dir == "up" :
-            self.surf = run_sheet.subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*2,run_sheet.get_width()/8,run_sheet.get_height()/3))
+            self.surf = run_sheets[self.white].subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*2,run_sheet.get_width()/8,run_sheet.get_height()/3))
         elif self.last_dir == "down" :
-            self.surf = run_sheet.subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*1,run_sheet.get_width()/8,run_sheet.get_height()/3))
+            self.surf = run_sheets[self.white].subsurface((run_sheet.get_width()/8*self.index_frame_run,run_sheet.get_height()/3*1,run_sheet.get_width()/8,run_sheet.get_height()/3))
 
         self.current_frame_run += 1
         if self.current_frame_run >= NB_FRAMES_SWITCH:
@@ -52,14 +52,14 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
     def idleAnimation(self):
         if self.last_dir == "right" :
-            self.surf = idle_sheet.subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*0,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*0,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
         elif self.last_dir == "left" :
-            self.surf = idle_sheet.subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*0,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*0,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
             self.surf = pygame.transform.flip(self.surf, True, False)
         elif self.last_dir == "up" :
-            self.surf = idle_sheet.subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*2,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*2,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
         elif self.last_dir == "down" :
-            self.surf = idle_sheet.subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*1,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet.get_width()/4*self.index_frame_idle,idle_sheet.get_height()/3*1,idle_sheet.get_width()/4,idle_sheet.get_height()/3))
 
         self.current_frame_idle += 1
         if self.current_frame_idle >= NB_FRAMES_SWITCH:

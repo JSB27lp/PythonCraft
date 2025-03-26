@@ -2,9 +2,10 @@ from pythoncraft.CharacterAnimation import *
 from pythoncraft.Util import *
 
 class Character(CharacterAnimation):
-    def __init__(self):
+    def __init__(self,white):
         
         self.pos = vec((random.randint(0,200), random.randint(0,200)))
+        self.white = white
         
         super().__init__() 
 
@@ -68,16 +69,16 @@ class Character(CharacterAnimation):
 
 
 class Hacker(Character):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,white):
+        super().__init__(white)
 
 class Agent(Character):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,white):
+        super().__init__(white)
 
 class Peon(Character):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,white):
+        super().__init__(white)
 
      
 

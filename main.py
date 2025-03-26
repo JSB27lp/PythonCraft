@@ -15,17 +15,17 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
     #init before loop
 
     #white part -->
-    neo = Hacker()
+    neo = Hacker(False)
     addCharacter(neo)
 
     for i in range(10):
-        character = Hacker()
+        character = Hacker(True)
         addCharacter(character)
 
-        character = Agent()
+        character = Agent(False)
         addCharacter(character)
 
-        character = Peon()
+        character = Peon(True)
         addCharacter(character)
     #<-- white part
 
@@ -42,7 +42,9 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         if cpt_frames > 10 :
             for character in characters:
                 direction = random.choice(["up", "down", "right", "left"])
-                character.setDirection(direction)
+                chance = random.randint(0,1)
+                if not chance : 
+                    character.setDirection(direction)
 
             cpt_frames = 0
 
