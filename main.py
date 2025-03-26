@@ -44,7 +44,7 @@ def start():
 
         #black part -->
         cpt_framesbis += 1
-        if cpt_frames > 10 :
+        if cpt_framesbis > 10 :
             for character in black_characters:
                 direction = random.choice(["up", "down", "right", "left"])
                 chance = random.randint(0,1)
