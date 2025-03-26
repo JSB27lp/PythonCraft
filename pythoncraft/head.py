@@ -36,8 +36,8 @@ run_sheet = pygame.image.load("assets/run.png").convert_alpha()
 idle_sheet = pygame.image.load("assets/idle.png").convert_alpha()
 run_sheet_black = pygame.image.load("assets/run_black.png").convert_alpha()
 idle_sheet_black = pygame.image.load("assets/idle_black.png").convert_alpha()
-run_sheets = [run_sheet,run_sheet_black]
-idle_sheets = [idle_sheet,idle_sheet_black]
+run_sheets = [run_sheet_black,run_sheet]
+idle_sheets = [idle_sheet_black,idle_sheet]
 
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
@@ -47,6 +47,10 @@ TILE_SIZE = 16
 all_sprites = pygame.sprite.Group()
 all_white_characters = pygame.sprite.Group()
 white_characters = []
+all_black_characters = pygame.sprite.Group()
+black_characters = []
+all_characters = pygame.sprite.Group()
+characters = []
 all_tiles = pygame.sprite.Group()
 
 

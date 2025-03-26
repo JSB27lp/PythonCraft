@@ -26,9 +26,14 @@ class Character(CharacterAnimation):
         elif type(self) is Peon:
             self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
-
-        white_characters.append(self)
-        all_white_characters.add(self)
+        if self.white :
+            white_characters.append(self)
+            all_white_characters.add(self)
+        else :
+            black_characters.append(self)
+            all_black_characters.add(self)
+        characters.append(self)
+        all_characters.add(self)
         all_sprites.add(self)
 
     def setDirection(self,direction):
@@ -62,8 +67,12 @@ class Character(CharacterAnimation):
         self.rect.midbottom = self.pos
  
     def collide(self):
-        collide = pygame.sprite.spritecollide(self, all_white_characters, False, pygame.sprite.collide_mask)
-        #collide = pygame.sprite.collide_mask(self, character)
+        collide = None
+        if self.white :
+            collide = pygame.sprite.spritecollide(self, all_white_characters, False, pygame.sprite.collide_mask)
+        else :
+            collide = pygame.sprite.spritecollide(self, all_black_characters, False, pygame.sprite.collide_mask)
+    
         if self in collide:
             collide.remove(self)
         return collide

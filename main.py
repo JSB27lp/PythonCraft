@@ -4,28 +4,30 @@ from pythoncraft.Util import *
  
 def start(): 
 
-
     #init before loop
 
     #white part -->
-    neo = Hacker(False)
+    cpt_frames = 0
+    neo = Hacker(True)
 
     for i in range(10):
         character = Hacker(True)
-        character = Agent(False)
+        character = Agent(True)
         character = Peon(True)
     #<-- white part
 
     #black part -->
+    cpt_framesbis = 0
+    for i in range(10):
+        character = Hacker(False)
+        character = Agent(False)
+        character = Peon(False)
     #<-- black part
-
-    cpt_frames = 0
 
     while 1: #game loop
 
-        cpt_frames += 1
-
         #white part -->
+        cpt_frames += 1
         if cpt_frames > 10 :
             for character in white_characters:
                 direction = random.choice(["up", "down", "right", "left"])
@@ -41,6 +43,15 @@ def start():
         #<-- white part
 
         #black part -->
+        cpt_framesbis += 1
+        if cpt_frames > 10 :
+            for character in black_characters:
+                direction = random.choice(["up", "down", "right", "left"])
+                chance = random.randint(0,1)
+                if not chance : 
+                    character.setDirection(direction)
+
+            cpt_framesbis = 0
         #<-- part part
 
         
@@ -136,8 +147,9 @@ def start():
 
         #START game internal mechanics
 
-        for character in all_white_characters:
+        for character in all_characters:
             character.exp += 1
+
 
         #END game internal mechanics
 
