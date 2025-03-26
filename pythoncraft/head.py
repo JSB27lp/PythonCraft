@@ -13,7 +13,7 @@ pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 
 #set global variable for character
 ACC = 0.5
-FRIC = -0.2
+FRIC = -0.3
 FPS = 60
 NB_FRAMES_SWITCH = 8
  
@@ -43,6 +43,8 @@ wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
 mineralSheet = pygame.image.load("assets/cave/gems.png").convert_alpha()
+
+rect_img = pygame.image.load("assets/rect.png").convert_alpha()
 
 TILE_SIZE = 42
 
