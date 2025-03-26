@@ -19,9 +19,11 @@ class Character(CharacterAnimation):
         chance = random.randint(0,999)
         self.name = None
         if type(self) is Agent:
-            self.name = Text("Agent-"+str(chance), (255,255,255), 8, (0, 0))
-        if type(self) is Hacker:
+            self.name = Text("Agent-"+str(chance), (255,0,0), 8, (0, 0))
+        elif type(self) is Hacker:
             self.name = Text("Hacker-"+str(chance), (0,255,0), 8, (0, 0))
+        elif type(self) is Peon:
+            self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
     def setDirection(self,direction):
         self.direction = direction
@@ -69,19 +71,7 @@ class Hacker(Character):
     def __init__(self):
         super().__init__()
 
-class Ia(Character):
-    def __init__(self):
-        super().__init__()
-
-class Ceo(Character):
-    def __init__(self):
-        super().__init__()
-
 class Agent(Character):
-    def __init__(self):
-        super().__init__()
-
-class Politician(Character):
     def __init__(self):
         super().__init__()
 

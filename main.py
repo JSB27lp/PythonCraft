@@ -17,25 +17,37 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
     neo = Hacker()
     addCharacter(neo)
 
-    for i in range(10):
+    for i in range(25):
         character = Hacker()
         addCharacter(character)
 
-    for i in range(10):
+    for i in range(25):
         character = Agent()
         addCharacter(character)
 
+    for i in range(25):
+        character = Peon()
+        addCharacter(character)
+
+    cpt_frames = 0
+
     while 1: #game loop
 
-        for character in characters:
-            direction = random.choice(["up", "down", "right", "left"])
-            character.setDirection(direction)
+        cpt_frames += 1
+
+        if cpt_frames > 10 :
+            for character in characters:
+                direction = random.choice(["up", "down", "right", "left"])
+                character.setDirection(direction)
+
+            cpt_frames = 0
             
+        for character in characters :
+            collide_list = character.collide()
+            for character_bis in collide_list :
+                character.tryKill(character_bis)
 
-        characters_neo_collide = neo.collide()
-        for character in characters_neo_collide :
-            neo.tryKill(character)
-
+        
 
 
 
@@ -138,8 +150,8 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         # OK ? 
 
-
-        setCamera(neo)
+        setCameraCharacter(neo)
+        
 
         #if quit event, exit the game
         events = pygame.event.get()
@@ -170,7 +182,11 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         pygame.display.update()
         FramePerSec.tick(FPS)
 
-def setCamera(character):
+def setCamera():
+    camera.x = -W_SURF/2
+    camera.y = -H_SURF/2
+
+def setCameraCharacter(character):
     camera.x = character.pos.x - W_SURF/2 + ((idle_sheet.get_width()/8)/2)
     camera.y = character.pos.y - H_SURF/2 - ((idle_sheet.get_height()/3)/2)
 
