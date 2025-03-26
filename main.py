@@ -10,24 +10,27 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 
 
-
+    
 
     #init before loop
 
+    #white part -->
     neo = Hacker()
     addCharacter(neo)
 
-    for i in range(25):
+    for i in range(10):
         character = Hacker()
         addCharacter(character)
 
-    for i in range(25):
         character = Agent()
         addCharacter(character)
 
-    for i in range(25):
         character = Peon()
         addCharacter(character)
+    #<-- white part
+
+    #black part -->
+    #<-- black part
 
     cpt_frames = 0
 
@@ -35,17 +38,23 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         cpt_frames += 1
 
+        #white part -->
         if cpt_frames > 10 :
             for character in characters:
                 direction = random.choice(["up", "down", "right", "left"])
                 character.setDirection(direction)
 
             cpt_frames = 0
-            
-        for character in characters :
-            collide_list = character.collide()
-            for character_bis in collide_list :
-                character.tryKill(character_bis)
+
+        collide_list = neo.collide()
+        for character in collide_list : 
+            neo.tryKill(character)
+        #<-- white part
+
+        #black part -->
+        #<-- part part
+
+        
 
         
 
