@@ -12,7 +12,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 
 
-
+    #init before loop
 
     neo = Hacker()
     addCharacter(neo)
@@ -25,7 +25,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         character = Agent()
         addCharacter(character)
 
-    while 1: 
+    while 1: #game loop
 
         for character in characters:
             direction = random.choice(["up", "down", "right", "left"])
@@ -38,7 +38,6 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         characters_neo_collide = neo.collide()
         for character in characters_neo_collide :
             print(str(character.exp)+" ; ", end='')
-
         
         print()
 
