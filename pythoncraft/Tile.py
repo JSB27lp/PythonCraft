@@ -7,7 +7,6 @@ class Tile(pygame.sprite.Sprite):
         self.surf = surf
         self.mask = pygame.mask.from_surface(self.surf)
         self.rect = self.surf.get_rect(center = pos)
-        print(pos)
 
     def move(self):
         pass

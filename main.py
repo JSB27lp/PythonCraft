@@ -4,13 +4,6 @@ from pythoncraft.Util import *
  
 def start(): 
 
-    mapGeneration() 
-
-
-
-
-
-    
 
     #init before loop
 
@@ -211,4 +204,5 @@ def mapGeneration():
         all_tiles.add(tile)
 
 
+mapGeneration() 
 start()
