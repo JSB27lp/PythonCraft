@@ -73,15 +73,15 @@ class Character(CharacterAnimation):
             self.rect.midbottom = self.pos
 
     def collideWall(self):
-        collide = pygame.sprite.spritecollide(self, all_walls, False, pygame.sprite.collide_mask)
+        collide = pygame.sprite.spritecollide(self, all_walls, False)
         return collide
  
     def collide(self):
         collide = None
         if self.white :
-            collide = pygame.sprite.spritecollide(self, all_white_characters, False, pygame.sprite.collide_mask)
+            collide = pygame.sprite.spritecollide(self, all_white_characters, False)
         else :
-            collide = pygame.sprite.spritecollide(self, all_black_characters, False, pygame.sprite.collide_mask)
+            collide = pygame.sprite.spritecollide(self, all_black_characters, False)
     
         if self in collide:
             collide.remove(self)
