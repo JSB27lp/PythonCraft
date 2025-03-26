@@ -5,7 +5,7 @@ from pythoncraft.Tile import *
 class Character(CharacterAnimation):
     def __init__(self,white):
         
-        self.pos = vec((random.randint(0,200), random.randint(0,200)))
+        self.pos = vec((-21, 21))
         self.white = white
         
         super().__init__() 
@@ -41,7 +41,6 @@ class Character(CharacterAnimation):
         self.direction = direction
         
     def move(self):
-        last_pos = self.pos
         self.acc = vec(0,0)
                 
         if self.direction == "left":
@@ -68,9 +67,9 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
 
-        if not self.collideWall():
-            self.rect.midbottom = last_pos
-            self.pos = last_pos
+        if self.collideWall():
+            self.pos -= self.vel + 0.5 * self.acc
+            self.rect.midbottom = self.pos
 
     def collideWall(self):
         collide = pygame.sprite.spritecollide(self, all_walls, False, pygame.sprite.collide_mask)
