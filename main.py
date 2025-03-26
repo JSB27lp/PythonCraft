@@ -1,7 +1,6 @@
 from pythoncraft.Tile import * #X ignore this line and do not touchX X X X X X X 
 from pythoncraft.Character import * #X ignore this line and do not touchX X X X X X X 
 from pythoncraft.Util import * #X ignore this line and do not touchX X X X X X X X X X 
-import random #X ignore this line and do not touchX X X X X X X X X X X X X X X X X 
  
 def start(): #X ignore this line and do not touchX X X X X X X X X X X X X 
 
@@ -13,6 +12,11 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
 
 
+
+
+    neo = Hacker()
+    addCharacter(neo)
+
     for i in range(10):
         character = Hacker()
         addCharacter(character)
@@ -23,13 +27,16 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
     while 1: 
 
-        for character in characters:
+        for character in all_characters:
             mylist = ["up", "down", "right", "left"]
             direction = random.choice(mylist)
             character.setDirection(direction)
 
-            
+            neo.tryKill(character)  
 
+        setCamera(neo)#once per loop, more is useless
+
+          
 
 
 
@@ -123,8 +130,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         #START game internal mechanics
 
-        for character in characters:
-            character.checkCollisions()
+        for character in all_characters:
             character.exp += 1
 
         #END game internal mechanics
@@ -150,10 +156,6 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
                     pygame.quit()
                     sys.exit()
 
-        #Adjust camera
-        camera.x = characters[0].pos.x - W_SURF/2 + ((idle_sheet.get_width()/8)/2)
-        camera.y = characters[0].pos.y - H_SURF/2 - ((idle_sheet.get_height()/3)/2)
-
         #Background color of the display
         display_surf.fill((55,63,61))
 
@@ -172,6 +174,10 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         pygame.display.update()
         FramePerSec.tick(FPS)
 
+def setCamera(character):
+    camera.x = character.pos.x - W_SURF/2 + ((idle_sheet.get_width()/8)/2)
+    camera.y = character.pos.y - H_SURF/2 - ((idle_sheet.get_height()/3)/2)
+
 def mapGeneration():
     for i in range(10):
         chance = random.randint(0,1)
@@ -181,10 +187,10 @@ def mapGeneration():
             tile = Tile((i*TILE_SIZE, 0), ground_cave_img)
 
         all_sprites.add(tile)
-        tiles_group.add(tile)
+        all_tiles.add(tile)
 
 def addCharacter(character):
-    characters.append(character)
+    all_characters.add(character)
     all_sprites.add(character)
 
 

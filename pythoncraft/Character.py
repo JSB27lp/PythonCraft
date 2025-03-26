@@ -5,11 +5,11 @@ class Character(CharacterAnimation):
     def __init__(self):
         super().__init__() 
 
-        self.pos = vec((0, 0))
+        self.pos = vec((random.randint(0,200), random.randint(0,200)))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
-        self.exp = 0
+        self.exp = random.randint(0,50)
 
         self.direction = ""
 
@@ -51,10 +51,13 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
  
-    def checkCollisions(self):
-        collide = pygame.sprite.spritecollide(self, tiles_group, False, pygame.sprite.collide_mask)
-        if collide:
-            print("collision")
+    def tryKill(self,character):
+        #collide = pygame.sprite.spritecollide(self, character, False, pygame.sprite.collide_mask)
+        collide = pygame.sprite.collide_mask(self, character)
+        if collide :
+            if self.exp > character.exp :
+                character.kill()
+
 
 class Hacker(Character):
     def __init__(self):
