@@ -1,6 +1,4 @@
-from pythoncraft.Tile import * 
-from pythoncraft.Character import * 
-from pythoncraft.Util import * 
+from pythoncraft.Character import *  
  
 def start(): 
 

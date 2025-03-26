@@ -1,5 +1,6 @@
 from pythoncraft.CharacterAnimation import *
 from pythoncraft.Util import *
+from pythoncraft.Tile import * 
 
 class Character(CharacterAnimation):
     def __init__(self,white):
