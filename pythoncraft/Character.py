@@ -40,6 +40,7 @@ class Character(CharacterAnimation):
         self.direction = direction
         
     def move(self):
+        last_pos = self.pos
         self.acc = vec(0,0)
                 
         if self.direction == "left":
@@ -65,6 +66,14 @@ class Character(CharacterAnimation):
         self.pos += self.vel + 0.5 * self.acc
              
         self.rect.midbottom = self.pos
+
+        if not self.collideGround():
+            self.pos = last_pos
+            self.rect.midbottom = self.pos
+
+    def collideGround(self):
+        collide = pygame.sprite.spritecollide(self, all_grounds, False, pygame.sprite.collide_mask)
+        return collide
  
     def collide(self):
         collide = None
