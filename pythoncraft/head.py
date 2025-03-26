@@ -45,8 +45,8 @@ ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 TILE_SIZE = 16
 
 all_sprites = pygame.sprite.Group()
-all_characters = pygame.sprite.Group()
-characters = []
+all_white_characters = pygame.sprite.Group()
+white_characters = []
 all_tiles = pygame.sprite.Group()
 
 

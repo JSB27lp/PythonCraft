@@ -27,7 +27,7 @@ def start():
 
         #white part -->
         if cpt_frames > 10 :
-            for character in characters:
+            for character in white_characters:
                 direction = random.choice(["up", "down", "right", "left"])
                 chance = random.randint(0,1)
                 if not chance : 
@@ -136,7 +136,7 @@ def start():
 
         #START game internal mechanics
 
-        for character in all_characters:
+        for character in all_white_characters:
             character.exp += 1
 
         #END game internal mechanics
