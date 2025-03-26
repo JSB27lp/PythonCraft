@@ -26,6 +26,11 @@ class Character(CharacterAnimation):
         elif type(self) is Peon:
             self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
+
+        characters.append(self)
+        all_characters.add(self)
+        all_sprites.add(self)
+
     def setDirection(self,direction):
         self.direction = direction
         

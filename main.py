@@ -1,10 +1,10 @@
-from pythoncraft.Tile import * #X ignore this line and do not touchX X X X X X X 
-from pythoncraft.Character import * #X ignore this line and do not touchX X X X X X X 
-from pythoncraft.Util import * #X ignore this line and do not touchX X X X X X X X X X 
+from pythoncraft.Tile import * 
+from pythoncraft.Character import * 
+from pythoncraft.Util import * 
  
-def start(): #X ignore this line and do not touchX X X X X X X X X X X X X 
+def start(): 
 
-    mapGeneration() #X ignore this line and do not touchX X X X X X X X X X X X 
+    mapGeneration() 
 
 
 
@@ -16,17 +16,11 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
     #white part -->
     neo = Hacker(False)
-    addCharacter(neo)
 
     for i in range(10):
         character = Hacker(True)
-        addCharacter(character)
-
         character = Agent(False)
-        addCharacter(character)
-
         character = Peon(True)
-        addCharacter(character)
     #<-- white part
 
     #black part -->
@@ -215,11 +209,6 @@ def mapGeneration():
 
         all_sprites.add(tile)
         all_tiles.add(tile)
-
-def addCharacter(character):
-    characters.append(character)
-    all_characters.add(character)
-    all_sprites.add(character)
 
 
 start()
