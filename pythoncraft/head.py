@@ -11,6 +11,7 @@ FramePerSec = pygame.time.Clock()
 pygame.mouse.set_visible(True) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
 camera = vec(0,0)
+pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 
 #set global variable for character
 ACC = 0.5

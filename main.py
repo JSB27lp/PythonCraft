@@ -150,7 +150,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         # OK ? 
 
-        setCameraCharacter(neo)
+        setCamera()
         
 
         #if quit event, exit the game
@@ -183,12 +183,9 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         FramePerSec.tick(FPS)
 
 def setCamera():
-    camera.x = -W_SURF/2
-    camera.y = -H_SURF/2
-
-def setCameraCharacter(character):
-    camera.x = character.pos.x - W_SURF/2 + ((idle_sheet.get_width()/8)/2)
-    camera.y = character.pos.y - H_SURF/2 - ((idle_sheet.get_height()/3)/2)
+    mousex, mousey = pygame.mouse.get_pos()
+    camera.x = mousex-W_SURF/2
+    camera.y = mousey-H_SURF/2
 
 def mapGeneration():
     for i in range(10):
