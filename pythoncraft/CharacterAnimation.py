@@ -7,7 +7,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
         self.surf = idle_sheet.subsurface((0,0,idle_sheet.get_width()/8,idle_sheet.get_height()/3))
         self.mask = pygame.mask.from_surface(self.surf)
-        self.rect = self.surf.get_rect()
+        self.rect = self.surf.get_rect(midbottom = self.pos)
 
         self.last_dir = "right"
 

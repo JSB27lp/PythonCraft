@@ -3,9 +3,11 @@ from pythoncraft.Util import *
 
 class Character(CharacterAnimation):
     def __init__(self):
+        
+        self.pos = vec((random.randint(0,200), random.randint(0,200)))
+        
         super().__init__() 
 
-        self.pos = vec((random.randint(0,200), random.randint(0,200)))
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
@@ -57,6 +59,10 @@ class Character(CharacterAnimation):
         if self in collide:
             collide.remove(self)
         return collide
+    
+    def tryKill(self,character):
+        if self.exp > character.exp :
+            character.kill()
 
 
 class Hacker(Character):
