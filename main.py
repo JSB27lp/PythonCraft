@@ -30,19 +30,11 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         for character in characters:
             direction = random.choice(["up", "down", "right", "left"])
             character.setDirection(direction)
-
-              
-
-        setCamera(neo)#once per loop, more is useless
+            
 
         characters_neo_collide = neo.collide()
         for character in characters_neo_collide :
-            print(str(character.exp)+" ; ", end='')
             neo.tryKill(character)
-        
-        print()
-        print(len(characters_neo_collide))
-
 
 
 
@@ -147,7 +139,7 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
         # OK ? 
 
 
-
+        setCamera(neo)
 
         #if quit event, exit the game
         events = pygame.event.get()

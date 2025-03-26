@@ -11,7 +11,7 @@ class Character(CharacterAnimation):
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
-        self.exp = random.randint(0,50)
+        self.exp = random.randint(0,1000)
 
         self.direction = ""
 
