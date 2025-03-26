@@ -1,6 +1,10 @@
 from pythoncraft.Character import *  
- 
+
 def start(): 
+    #########################################
+    #script for controlling yours characters#
+    #########################################
+
 
     #init before loop
 
@@ -52,8 +56,10 @@ def start():
             cpt_framesbis = 0
         #<-- part part
 
-        
 
+    #########################################
+    #script for controlling yours characters#
+    #########################################
         
 
 
@@ -205,6 +211,7 @@ def setCamera():
 def mapGeneration():
     for y in range(-11,12):
         for x in range(-19,20):
+            #add grounds and walls
             chance = random.randint(0,3)
             tile = None
             if (not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0):
@@ -214,6 +221,12 @@ def mapGeneration():
                 tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
             all_sprites.add(tile)
             all_tiles.add(tile)
+
+            #add minerals
+            chance = random.randint(0,10)
+            if not chance :
+                mineral = Mineral((x*TILE_SIZE, y*TILE_SIZE))
+                all_sprites.add(mineral)
 
 
 mapGeneration() 

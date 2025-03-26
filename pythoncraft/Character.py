@@ -1,11 +1,12 @@
 from pythoncraft.CharacterAnimation import *
 from pythoncraft.Util import *
 from pythoncraft.Tile import * 
+from pythoncraft.Mineral import * 
 
 class Character(CharacterAnimation):
     def __init__(self,white):
         
-        self.pos = vec((-21, 21))
+        self.pos = vec((-21, 31))
         self.white = white
         
         super().__init__() 
