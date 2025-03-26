@@ -27,9 +27,8 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
     while 1: 
 
-        for character in all_characters:
-            mylist = ["up", "down", "right", "left"]
-            direction = random.choice(mylist)
+        for character in characters:
+            direction = random.choice(["up", "down", "right", "left"])
             character.setDirection(direction)
 
               
@@ -38,8 +37,10 @@ def start(): #X ignore this line and do not touchX X X X X X X X X X X X X
 
         characters_neo_collide = neo.collide()
         for character in characters_neo_collide :
-            character.kill()
+            print(str(character.exp)+" ; ", end='')
 
+        
+        print()
 
 
 
@@ -192,6 +193,7 @@ def mapGeneration():
         all_tiles.add(tile)
 
 def addCharacter(character):
+    characters.append(character)
     all_characters.add(character)
     all_sprites.add(character)
 

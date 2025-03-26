@@ -54,6 +54,8 @@ class Character(CharacterAnimation):
     def collide(self):
         collide = pygame.sprite.spritecollide(self, all_characters, False, pygame.sprite.collide_mask)
         #collide = pygame.sprite.collide_mask(self, character)
+        if self in collide:
+            collide.remove(self)
         return collide
 
 
