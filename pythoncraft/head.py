@@ -9,7 +9,7 @@ vec = pygame.math.Vector2 #2 for two dimensional
 FramePerSec = pygame.time.Clock()
 pygame.mouse.set_visible(True) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
-pygame.mouse.set_cursor(*pygame.cursors.broken_x)
+pygame.mouse.set_cursor(*pygame.cursors.tri_left)
 
 #set global variable for character
 ACC = 0.5
