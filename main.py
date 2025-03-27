@@ -10,19 +10,19 @@ def start():
 
     #white part -->
     cpt_frames = 0
-    neo = Hacker(True)
+    neo = Thief(True)
 
     for i in range(5):
-        character = Hacker(True)
-        character = Agent(True)
+        character = Thief(True)
+        character = Hunter(True)
         character = Peon(True)
     #<-- white part
 
     #black part -->
     cpt_framesbis = 0
     for i in range(5):
-        character = Hacker(False)
-        character = Agent(False)
+        character = Thief(False)
+        character = Hunter(False)
         character = Peon(False)
     #<-- black part
 
@@ -149,16 +149,6 @@ def start():
 
 
 
-        #START game internal mechanics
-
-        for character in all_characters:
-            character.exp += 1
-
-
-        #END game internal mechanics
-
-
-
 
         # OK THIS PART IS REALLY USELESS FOR YOU
 
@@ -227,8 +217,7 @@ def mapGeneration():
             if not((not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0)):
                 chance = random.randint(0,5)
                 if not chance :
-                    mineral = Mineral((x*TILE_SIZE, y*TILE_SIZE))
-                    all_sprites.add(mineral)
+                    Mineral((x*TILE_SIZE, y*TILE_SIZE))
 
 
 mapGeneration() 

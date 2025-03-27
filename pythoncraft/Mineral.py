@@ -13,6 +13,13 @@ class Mineral(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.surf)
         self.rect = self.surf.get_rect(center = pos)
 
+        
+        all_sprites.add(self)
+        if self.type == "blue":
+            all_blue_minerals.add(self)
+        else :
+            all_pink_minerals.add(self)
+
     def move(self):
         pass
 

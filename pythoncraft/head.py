@@ -44,8 +44,7 @@ ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
 mineralSheet = pygame.image.load("assets/cave/gems.png").convert_alpha()
 
-rect_img = pygame.image.load("assets/rect.png").convert_alpha()
-
+#game variables
 TILE_SIZE = 42
 
 all_sprites = pygame.sprite.Group()
@@ -59,6 +58,9 @@ characters = []
 
 all_tiles = pygame.sprite.Group()
 all_walls = pygame.sprite.Group()
+
+all_blue_minerals = pygame.sprite.Group()
+all_pink_minerals = pygame.sprite.Group()
 
 
 

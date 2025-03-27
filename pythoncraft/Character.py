@@ -14,19 +14,26 @@ class Character(CharacterAnimation):
         self.vel = vec(0,0)
         self.acc = vec(0,0)
 
-        self.exp = random.randint(0,1000)
+        self.blue_minerals = 0
+        self.pink_minerals = 0
 
         self.direction = ""
 
         
         chance = random.randint(0,999)
         self.name = None
-        if type(self) is Agent:
-            self.name = Text("Agent-"+str(chance), (255,0,0), 8, (0, 0))
-        elif type(self) is Hacker:
-            self.name = Text("Hacker-"+str(chance), (0,255,0), 8, (0, 0))
+        self.type = ""
+        if type(self) is Hunter:
+            self.name = Text("Hunter-"+str(chance), (0,255,0), 8, (0, 0))
+            self.type ="Hunter"
+        elif type(self) is Thief:
+            self.name = Text("Thief-"+str(chance), (255,0,0), 8, (0, 0))
+            self.type ="Thief"
         elif type(self) is Peon:
             self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
+            self.type ="Peon"
+
+        
 
         if self.white :
             white_characters.append(self)
@@ -72,6 +79,18 @@ class Character(CharacterAnimation):
             self.pos -= self.vel + 0.5 * self.acc
             self.rect.midbottom = self.pos
 
+        if self.type == "Peon":
+            self.collideMinerals()
+
+    def collideMinerals(self):
+        collide = pygame.sprite.spritecollide(self, all_blue_minerals, True)
+        if collide :
+            self.blue_minerals += 1
+
+        collide = pygame.sprite.spritecollide(self, all_pink_minerals, True)
+        if collide :
+            self.pink_minerals +=1
+
     def collideWall(self):
         collide = pygame.sprite.spritecollide(self, all_walls, False)
         return collide
@@ -88,15 +107,14 @@ class Character(CharacterAnimation):
         return collide
     
     def tryKill(self,character):
-        if self.exp > character.exp :
-            character.kill()
+        character.kill()
 
 
-class Hacker(Character):
+class Thief(Character):
     def __init__(self,white):
         super().__init__(white)
 
-class Agent(Character):
+class Hunter(Character):
     def __init__(self,white):
         super().__init__(white)
 
