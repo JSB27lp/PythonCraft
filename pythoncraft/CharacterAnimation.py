@@ -85,14 +85,3 @@ class CharacterAnimation(pygame.sprite.Sprite):
             display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -20))
 
 
-            tmp = pygame.surface.Surface((10,10))
-            tmp.fill((255,255,255))
-
-            mousex, mousey = pygame.mouse.get_pos()
-            ratio = W_SCREEN/W_SURF     
-            x = mousex/ratio
-            y = mousey/ratio
-            x -=5
-            y -=5
-            
-            display_surf.blit(tmp, (x, y))

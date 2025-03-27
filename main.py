@@ -172,6 +172,8 @@ def start():
         for entity in all_sprites:
             entity.move()
             entity.display(camera)
+
+        drawSquareCursor()
             
         #blit the display_surf to the screen with scaling
         screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
@@ -196,6 +198,13 @@ def setCamera():
     if mousey > H_SCREEN*0.8:
         camera.y += 3
 
+def drawSquareCursor():
+    tmp = pygame.surface.Surface((10,10))
+    tmp.fill((255,255,255))
+
+    vec_tmp = getPosCursor()
+    display_surf.blit(tmp, (vec_tmp.x, vec_tmp.y))
+
 def mapGeneration():
     for y in range(-11,12):
         for x in range(-19,20):
@@ -219,6 +228,8 @@ def mapGeneration():
                 Chest((x*TILE_SIZE, y*TILE_SIZE),True)
             if x == 1 and y == 0:
                 Chest((x*TILE_SIZE, y*TILE_SIZE),False)
+
+
 
 
 mapGeneration() 
