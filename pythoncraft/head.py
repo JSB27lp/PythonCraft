@@ -13,7 +13,7 @@ pygame.mouse.set_cursor(*pygame.cursors.tri_left)
 
 #set global variable for character
 ACC = 0.5
-FRIC = -0.2
+FRIC = -0.3
 FPS = 60
 NB_FRAMES_SWITCH = 8
  

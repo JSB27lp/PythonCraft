@@ -21,7 +21,6 @@ def start():
         Hunter(True)
         Peon(True)
 
-    print(len(characters))
 
     while 1: #game loop
 

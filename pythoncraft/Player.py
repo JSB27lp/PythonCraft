@@ -18,7 +18,10 @@ class Player(pygame.sprite.Sprite):
         return vec(x,y)
 
     def play(self):
-
         vec_tmp = self.getPosCursor()
         self.rect.center = vec_tmp
         display_surf.blit(self.surf, self.rect)
+
+        collide = pygame.sprite.spritecollide(self, all_characters, False)
+        if collide :
+            print("yes")
