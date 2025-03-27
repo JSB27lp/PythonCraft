@@ -215,7 +215,7 @@ def mapGeneration():
             #add grounds and walls
             chance = random.randint(0,3)
             tile = None
-            if (not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 and y!=0):
+            if (not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0):
                 tile = Tile((x*TILE_SIZE, y*TILE_SIZE), wall_cave_img)
                 all_walls.add(tile)
             else :
@@ -224,10 +224,11 @@ def mapGeneration():
             all_tiles.add(tile)
 
             #add minerals
-            chance = random.randint(0,10)
-            if not chance :
-                mineral = Mineral((x*TILE_SIZE, y*TILE_SIZE))
-                all_sprites.add(mineral)
+            if not((not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0)):
+                chance = random.randint(0,5)
+                if not chance :
+                    mineral = Mineral((x*TILE_SIZE, y*TILE_SIZE))
+                    all_sprites.add(mineral)
 
 
 mapGeneration() 
