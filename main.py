@@ -12,17 +12,17 @@ def start():
     cpt_frames = 0
     neo = Thief(True)
 
-    for i in range(5):
-        character = Thief(True)
-        character = Hunter(True)
+    for i in range(15):
+        '''character = Thief(True)
+        character = Hunter(True)'''
         character = Peon(True)
     #<-- white part
 
     #black part -->
     cpt_framesbis = 0
-    for i in range(5):
-        character = Thief(False)
-        character = Hunter(False)
+    for i in range(15):
+        '''character = Thief(False)
+        character = Hunter(False)'''
         character = Peon(False)
     #<-- black part
 
