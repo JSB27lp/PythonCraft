@@ -173,7 +173,7 @@ def start():
             entity.move()
             entity.display(camera)
 
-        drawSquareCursor()
+        player.play()
             
         #blit the display_surf to the screen with scaling
         screen.blit(pygame.transform.scale(display_surf, (W_SCREEN, H_SCREEN)), (0,0))
@@ -197,13 +197,6 @@ def setCamera():
         camera.y -= 3
     if mousey > H_SCREEN*0.8:
         camera.y += 3
-
-def drawSquareCursor():
-    tmp = pygame.surface.Surface((10,10))
-    tmp.fill((255,255,255))
-
-    vec_tmp = getPosCursor()
-    display_surf.blit(tmp, (vec_tmp.x, vec_tmp.y))
 
 def mapGeneration():
     for y in range(-11,12):
@@ -233,4 +226,5 @@ def mapGeneration():
 
 
 mapGeneration() 
+player  = Player()
 start()

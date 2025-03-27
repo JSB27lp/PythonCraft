@@ -3,6 +3,7 @@ from pythoncraft.Util import *
 from pythoncraft.Tile import * 
 from pythoncraft.Mineral import * 
 from pythoncraft.Chest import * 
+from pythoncraft.Player import * 
 
 class Character(CharacterAnimation):
     def __init__(self,white):
