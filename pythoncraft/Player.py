@@ -3,11 +3,13 @@ from pythoncraft.Util import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
-        super().__init__()  
+        super().__init__() 
+
+        self.surf = pygame.surface.Surface((10,10))
+        self.surf.fill((255,255,255))
+        self.rect = self.surf.get_rect(center = getPosCursor()) 
 
     def play(self):
-        tmp = pygame.surface.Surface((10,10))
-        tmp.fill((255,255,255))
 
         vec_tmp = getPosCursor()
-        display_surf.blit(tmp, (vec_tmp.x, vec_tmp.y))
+        display_surf.blit(self.surf, (vec_tmp.x, vec_tmp.y))
