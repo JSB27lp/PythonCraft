@@ -6,8 +6,11 @@ class CharacterAnimation(pygame.sprite.Sprite):
         super().__init__()
             
         self.surf = idle_sheet.subsurface((0,0,idle_sheet.get_width()/8,idle_sheet.get_height()/3))
-        self.mask = pygame.mask.from_surface(self.surf)
-        self.rect = self.surf.get_rect(midbottom = self.pos)
+
+        self.surf_square = pygame.surface.Surface((idle_sheet.get_width()/8- 32,idle_sheet.get_height()/3- 64)) #
+        self.surf_square.fill((255,0,255))
+        
+        self.rect = self.surf_square.get_rect(midbottom = self.pos)
 
         self.last_dir = "right"
 
@@ -69,11 +72,10 @@ class CharacterAnimation(pygame.sprite.Sprite):
                 self.index_frame_idle = 0  
 
     def display(self,camera):
-        display_surf.blit(self.surf, (self.rect.x - camera.x, self.rect.y - camera.y))
 
-        
-        display_surf.blit(self.name.surf, (self.rect.x - camera.x, self.rect.y+20 - camera.y))        
+        display_surf.blit(self.surf, (self.rect.x - camera.x -36, self.rect.y - camera.y -32))
 
+        display_surf.blit(self.name.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -10))        
 
         exp_txt = Text(str(self.exp), (0,255,255), 6, (0, 0))
-        display_surf.blit(exp_txt.surf, (self.rect.x - camera.x, self.rect.y+15 - camera.y)) 
+        display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -15)) 
