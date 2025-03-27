@@ -20,7 +20,6 @@ NB_FRAMES_SWITCH = 8
 #set screen
 screen = pygame.display.set_mode((1920, 1080))
 infoObject = pygame.display.Info()
-print(infoObject)
 W_SCREEN = infoObject.current_w
 H_SCREEN = infoObject.current_h
 
