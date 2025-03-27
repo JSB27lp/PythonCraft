@@ -11,10 +11,3 @@ class Text(pygame.sprite.Sprite):
     def display(self,surf):
         surf.blit(self.surf, self.rect)
 
-def getPosCursor():
-    mousex, mousey = pygame.mouse.get_pos()
-    ratio = W_SCREEN/W_SURF     
-    x = mousex/ratio
-    y = mousey/ratio
-
-    return vec(x,y)
