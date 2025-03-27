@@ -6,25 +6,22 @@ def start():
     #########################################
 
 
-    #init before loop
 
-    #white part -->
     cpt_frames = 0
-    neo = Thief(True)
-
-    for i in range(15):
-        '''character = Thief(True)
-        character = Hunter(True)'''
-        character = Peon(True)
-    #<-- white part
-
-    #black part -->
     cpt_framesbis = 0
-    for i in range(15):
-        '''character = Thief(False)
-        character = Hunter(False)'''
-        character = Peon(False)
-    #<-- black part
+
+
+    for i in range(1):
+        Thief(False)
+        Hunter(False)
+        Peon(False)
+
+    for i in range(1):
+        Thief(True)
+        Hunter(True)
+        Peon(True)
+
+    print(len(characters))
 
     while 1: #game loop
 
@@ -39,9 +36,9 @@ def start():
 
             cpt_frames = 0
 
-        collide_list = neo.collide()
+        '''collide_list = neo.collide()
         for character in collide_list : 
-            neo.tryKill(character)
+            neo.tryKill(character)'''
         #<-- white part
 
         #black part -->
