@@ -16,7 +16,5 @@ def getPosCursor():
     ratio = W_SCREEN/W_SURF     
     x = mousex/ratio
     y = mousey/ratio
-    x -=5
-    y -=5
 
     return vec(x,y)

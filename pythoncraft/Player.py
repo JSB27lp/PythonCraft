@@ -12,4 +12,5 @@ class Player(pygame.sprite.Sprite):
     def play(self):
 
         vec_tmp = getPosCursor()
-        display_surf.blit(self.surf, (vec_tmp.x, vec_tmp.y))
+        self.rect.center = vec_tmp
+        display_surf.blit(self.surf, self.rect)
