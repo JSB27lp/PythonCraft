@@ -20,6 +20,8 @@ class Mineral(pygame.sprite.Sprite):
         else :
             all_pink_minerals.add(self)
 
+        
+
     def move(self):
         pass
 

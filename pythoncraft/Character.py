@@ -2,6 +2,7 @@ from pythoncraft.CharacterAnimation import *
 from pythoncraft.Util import *
 from pythoncraft.Tile import * 
 from pythoncraft.Mineral import * 
+from pythoncraft.Chest import * 
 
 class Character(CharacterAnimation):
     def __init__(self,white):
@@ -81,6 +82,24 @@ class Character(CharacterAnimation):
 
         if self.type == "Peon":
             self.collideMinerals()
+            self.collideChest()
+        
+    def collideChest(self):
+        collide = pygame.sprite.spritecollide(self, all_chests, False)
+        if collide :
+            if collide[0].white and self.white :
+                collide[0].blue_minerals = self.blue_minerals
+                collide[0].pink_minerals = self.pink_minerals
+
+                self.blue_minerals = 0
+                self.pink_minerals = 0
+
+            if not collide[0].white and not self.white :
+                collide[0].blue_minerals = self.blue_minerals
+                collide[0].pink_minerals = self.pink_minerals
+                
+                self.blue_minerals = 0
+                self.pink_minerals = 0
 
     def collideMinerals(self):
         collide = pygame.sprite.spritecollide(self, all_blue_minerals, True)

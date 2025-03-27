@@ -205,19 +205,23 @@ def mapGeneration():
             #add grounds and walls
             chance = random.randint(0,3)
             tile = None
-            if (not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0):
+            if (not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0):
                 tile = Tile((x*TILE_SIZE, y*TILE_SIZE), wall_cave_img)
                 all_walls.add(tile)
             else :
                 tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
-            all_sprites.add(tile)
-            all_tiles.add(tile)
 
             #add minerals
-            if not((not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0)):
+            if not((not chance or y == -11 or y == 11 or x == -19 or x == 19) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0)):
                 chance = random.randint(0,5)
                 if not chance :
                     Mineral((x*TILE_SIZE, y*TILE_SIZE))
+
+            #add chests
+            if x == -1 and y == 0:
+                Chest((x*TILE_SIZE, y*TILE_SIZE),True)
+            if x == 1 and y == 0:
+                Chest((x*TILE_SIZE, y*TILE_SIZE),False)
 
 
 mapGeneration() 

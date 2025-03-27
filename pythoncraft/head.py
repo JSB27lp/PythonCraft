@@ -13,8 +13,8 @@ pygame.mouse.set_cursor(*pygame.cursors.broken_x)
 
 #set global variable for character
 ACC = 0.5
-FRIC = -0.35
-FPS = 165
+FRIC = -0.2
+FPS = 60
 NB_FRAMES_SWITCH = 8
  
 #set screen
@@ -44,6 +44,8 @@ ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
 
 mineralSheet = pygame.image.load("assets/cave/gems.png").convert_alpha()
 
+chest_img = pygame.image.load("assets/chest.png").convert_alpha()
+
 #game variables
 TILE_SIZE = 42
 
@@ -61,6 +63,8 @@ all_walls = pygame.sprite.Group()
 
 all_blue_minerals = pygame.sprite.Group()
 all_pink_minerals = pygame.sprite.Group()
+
+all_chests = pygame.sprite.Group()
 
 
 

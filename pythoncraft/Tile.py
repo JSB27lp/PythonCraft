@@ -7,6 +7,9 @@ class Tile(pygame.sprite.Sprite):
         self.surf = surf
         self.rect = self.surf.get_rect(center = pos)
 
+        all_sprites.add(self)
+        all_tiles.add(self)
+
     def move(self):
         pass
 
