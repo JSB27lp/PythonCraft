@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
 
         collide = pygame.sprite.spritecollide(self, all_characters, False)
         if collide :
-            print("A")
+            print("collision")
 
         
-        #display_surf.blit(self.surf, self.rect)
+        display_surf.blit(self.surf, self.rect)
