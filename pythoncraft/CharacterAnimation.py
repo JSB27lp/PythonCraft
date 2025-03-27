@@ -88,9 +88,11 @@ class CharacterAnimation(pygame.sprite.Sprite):
             tmp = pygame.surface.Surface((10,10))
             tmp.fill((255,255,255))
 
-            ratio = W_SCREEN/W_SURF
             mousex, mousey = pygame.mouse.get_pos()
-            mousex /=ratio
-            mousey /=ratio
-
-            display_surf.blit(tmp, (mousex-5, mousey-5))
+            ratio = W_SCREEN/W_SURF     
+            x = mousex/ratio
+            y = mousey/ratio
+            x -=5
+            y -=5
+            
+            display_surf.blit(tmp, (x, y))
