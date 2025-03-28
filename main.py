@@ -14,8 +14,6 @@ def start():
 
 
     cpt_frames = 0
-    cpt_framesbis = 0
-
 
 
 
@@ -30,26 +28,14 @@ def start():
         #white part -->
         cpt_frames += 1
         if cpt_frames > 10 :
-            for character in white_characters:
-                direction = random.choice(["up", "down", "right", "left"])
-                chance = random.randint(0,1)
-                if not chance : 
-                    character.setDirection(direction)
+            for character in all_characters:
+                if character != neo:
+                    direction = random.choice(["up", "down", "right", "left"])
+                    chance = random.randint(0,1)
+                    if not chance : 
+                        character.setDirection(direction)
 
             cpt_frames = 0
-
-        #<-- white part
-
-        #black part -->
-        cpt_framesbis += 1
-        if cpt_framesbis > 10 :
-            for character in black_characters:
-                direction = random.choice(["up", "down", "right", "left"])
-                chance = random.randint(0,1)
-                if not chance : 
-                    character.setDirection(direction)
-
-            cpt_framesbis = 0
         #<-- black part
 
 
@@ -70,6 +56,7 @@ def start():
 
 
 
+
         #neo script
         '''
         mousex, mousey = pygame.mouse.get_pos()
@@ -82,8 +69,8 @@ def start():
             neo.setDirection("up")
         if mousey > H_SCREEN*0.6:
             neo.setDirection("down")
+        
         '''
-
         
 
         '''
@@ -104,7 +91,23 @@ def start():
         #STOP X X X X X X X X X X X X X X X X X X X X X X X X 
 
 
+        #REPOP MINERALS
+        nb_minerals = len(all_blue_minerals) + len(all_pink_minerals)
 
+        #repop requirement
+        if nb_minerals < 10 :
+            print("nombre de minerais inf à 5")
+
+            #choisi un ground au hasard
+            chance_ground = random.randint(0,len(all_grounds))
+            i = 0
+            for ground in all_grounds:
+                i+=1
+                if i == chance_ground :
+
+                    #add mineral
+                    Mineral((ground.rect.centerx,ground.rect.centery))
+                    break
 
 
 
@@ -183,6 +186,15 @@ def start():
                     pygame.quit()
                     sys.exit()
 
+                if event.key == pygame.K_q or event.key == pygame.K_LEFT :
+                    neo.setDirection("left")
+                if event.key == pygame.K_d  or event.key == pygame.K_RIGHT :
+                    neo.setDirection("right")
+                if event.key == pygame.K_z or event.key == pygame.K_UP :
+                    neo.setDirection("up")
+                if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
+                    neo.setDirection("down")
+
         #Background color of the display
         display_surf.fill((55,63,61))
 
@@ -255,6 +267,8 @@ def mapGeneration():
                 all_walls.add(tile)
             else :
                 tile = Tile((x*TILE_W, y*TILE_H), ground_cave_img)
+                all_grounds.add(tile)
+                grounds.append(tile)
 
                 #add minerals
                 chance_ = random.randint(0,3)
@@ -262,9 +276,9 @@ def mapGeneration():
                     Mineral((x*TILE_W, y*TILE_H))
 
 
-                ratio_char = 8 #plus cest haut moins  ya des characters
+                ratio_char = 16 #plus cest haut moins  ya des characters
                 #add characters
-                chance_ = random.randint(0,ratio_char*2)
+                chance_ = random.randint(0,ratio_char*3)
                 if not chance_ :
                     Thief(True,(x*TILE_W, y*TILE_H))
                     Hunter(True,(x*TILE_W, y*TILE_H))             
@@ -272,7 +286,7 @@ def mapGeneration():
                 if not chance_ :
                     Peon(True,(x*TILE_W, y*TILE_H))
 
-                chance_ = random.randint(0,ratio_char*2)
+                chance_ = random.randint(0,ratio_char*3)
                 if not chance_ :
                     Thief(False,(x*TILE_W, y*TILE_H))
                     Hunter(False,(x*TILE_W, y*TILE_H))             

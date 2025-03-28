@@ -9,7 +9,7 @@ class Character(CharacterAnimation):
     def __init__(self,white,pos,specialColor):
         
         self.pos = pos
-        
+
         self.white = white
         
         super().__init__() 
@@ -81,7 +81,7 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
 
-        if self.collideWall():
+        if not self.collideGround():
             self.pos -= self.vel + 0.5 * self.acc
             self.rect.midbottom = self.pos
 
@@ -115,8 +115,9 @@ class Character(CharacterAnimation):
         if collide :
             self.pink_minerals +=1
 
-    def collideWall(self):
-        collide = pygame.sprite.spritecollide(self, all_walls, False)
+
+    def collideGround(self):
+        collide = pygame.sprite.spritecollide(self, all_grounds, False)
         return collide
  
     def collide(self):

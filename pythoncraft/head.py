@@ -64,6 +64,8 @@ characters = []
 
 all_tiles = pygame.sprite.Group()
 all_walls = pygame.sprite.Group()
+all_grounds = pygame.sprite.Group()
+grounds = []
 
 all_blue_minerals = pygame.sprite.Group()
 all_pink_minerals = pygame.sprite.Group()
