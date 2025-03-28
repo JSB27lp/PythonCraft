@@ -91,15 +91,15 @@ class Character(CharacterAnimation):
         collide = pygame.sprite.spritecollide(self, all_chests, False)
         if collide :
             if collide[0].white and self.white :
-                collide[0].blue_minerals = self.blue_minerals
-                collide[0].pink_minerals = self.pink_minerals
+                collide[0].blue_minerals += self.blue_minerals
+                collide[0].pink_minerals += self.pink_minerals
 
                 self.blue_minerals = 0
                 self.pink_minerals = 0
 
             if not collide[0].white and not self.white :
-                collide[0].blue_minerals = self.blue_minerals
-                collide[0].pink_minerals = self.pink_minerals
+                collide[0].blue_minerals += self.blue_minerals
+                collide[0].pink_minerals += self.pink_minerals
                 
                 self.blue_minerals = 0
                 self.pink_minerals = 0
