@@ -261,11 +261,23 @@ def mapGeneration():
                 if not chance_ and not (x == -1 and y == 0) and not(x == 1 and y == 0):
                     Mineral((x*TILE_W, y*TILE_H))
 
+
+                ratio_char = 8 #plus cest haut moins  ya des characters
                 #add characters
-                chance_ = random.randint(0,5)
+                chance_ = random.randint(0,ratio_char*2)
+                if not chance_ :
+                    Thief(True,(x*TILE_W, y*TILE_H))
+                    Hunter(True,(x*TILE_W, y*TILE_H))             
+                chance_ = random.randint(0,ratio_char)
+                if not chance_ :
+                    Peon(True,(x*TILE_W, y*TILE_H))
+
+                chance_ = random.randint(0,ratio_char*2)
                 if not chance_ :
                     Thief(False,(x*TILE_W, y*TILE_H))
-                    Hunter(False,(x*TILE_W, y*TILE_H))
+                    Hunter(False,(x*TILE_W, y*TILE_H))             
+                chance_ = random.randint(0,ratio_char)
+                if not chance_ :
                     Peon(False,(x*TILE_W, y*TILE_H))
 
 
