@@ -35,7 +35,7 @@ class Character(CharacterAnimation):
             else:
                 self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
-    def move(self):
+    def move(self,tiles):
 
         self.changeDirection()
                 
@@ -55,9 +55,17 @@ class Character(CharacterAnimation):
             self.pos.y += VELOCITY
             self.last_dir = "down"
 
-        self.animate()
-             
+        x = int(self.pos.x)
+        y = int(self.pos.y)
+        if x<len(tiles) :
+            if tiles[x][y].type=="wall":
+                self.white = not self.white
+            else :
+                self.white = not self.white
+
         self.rect.midbottom = (self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
+
+        self.animate()
 
     def changeDirection(self):
             self.cpt_frames+=1
@@ -67,5 +75,8 @@ class Character(CharacterAnimation):
                     self.direction = direction
                     self.cpt_frames = 0
 
-    def testCollision(self):
+    def testMinerals(self):
+        pass
+
+    def testChests(self):
         pass

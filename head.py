@@ -39,6 +39,9 @@ TILE_SIZE = 16
 OFFSET_X = 16
 OFFSET_Y = 20
 
+ROWS = 21
+COLS = 39
+
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 wall_cave_img = pygame.transform.scale(wall_cave_img,(TILE_SIZE,TILE_SIZE))
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()

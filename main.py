@@ -11,8 +11,9 @@ world.mapGeneration()
 while 1: 
 
     for character in world.characters:
-        character.move()
-        character.testCollision()
+        character.move(world.tiles)
+        character.testMinerals()
+        character.testChests()
 
     world.repopMinerals()
 
@@ -27,14 +28,14 @@ while 1:
                 pygame.quit()
                 sys.exit()
 
-            '''if event.key == pygame.K_q or event.key == pygame.K_LEFT :
-                neo.setDirection("left")
+            if event.key == pygame.K_q or event.key == pygame.K_LEFT :
+                world.characters[0].direction = "left"
             if event.key == pygame.K_d  or event.key == pygame.K_RIGHT :
-                neo.setDirection("right")
+                world.characters[0].direction = "right"
             if event.key == pygame.K_z or event.key == pygame.K_UP :
-                neo.setDirection("up")
+                world.characters[0].direction = "up"
             if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
-                neo.setDirection("down")'''
+                world.characters[0].direction = "down"
 
     #display fill
     display_surf.fill((55,63,61))
