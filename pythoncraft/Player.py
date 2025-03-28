@@ -7,7 +7,7 @@ class Player(pygame.sprite.Sprite):
 
         self.surf = pygame.surface.Surface((10,10))
         self.surf.fill((255,255,255))
-        self.rect = self.surf.get_rect() 
+        self.rect = self.surf.get_rect(center = self.getPosCursor()) 
 
     def getPosCursor(self):
         mousex, mousey = pygame.mouse.get_pos()
@@ -24,7 +24,8 @@ class Player(pygame.sprite.Sprite):
         collide = pygame.sprite.spritecollide(self, all_characters, False)
         if collide :
             print("collision")
+        print(self.rect.x,"self")
 
-        #display_surf.blit(self.surf, self.rect)
+        display_surf.blit(self.surf, self.rect)
 
     
