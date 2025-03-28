@@ -1,5 +1,6 @@
 from pythoncraft.head import *
 from pythoncraft.Util import *
+from pythoncraft.Character import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -16,16 +17,21 @@ class Player(pygame.sprite.Sprite):
         y = mousey/ratio
 
         return vec(x,y)
-
-    def play(self):
+    
+    def updateRect(self):
         vec_tmp = self.getPosCursor()
         self.rect.center = vec_tmp
 
-        collide = pygame.sprite.spritecollide(self, all_characters, False)
-        if collide :
+    def play(self):
+        self.updateRect()
+
+        if self.collideCharacters() :
             print("collision")
-        print(self.rect.x,"self")
 
         display_surf.blit(self.surf, self.rect)
+
+    def collideCharacters(self):
+        collide = pygame.sprite.spritecollide(self, all_characters, False)
+        return collide
 
     

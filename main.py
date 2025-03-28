@@ -11,21 +11,18 @@ def start():
     cpt_framesbis = 0
 
 
-    '''for i in range(2):
+    for i in range(10):
         Thief(False)
         Hunter(False)
         Peon(False)
 
-    for i in range(2):
+    for i in range(10):
         Thief(True)
         Hunter(True)
-        Peon(True)'''
-
-    neo = Peon(False)
+        Peon(True)
 
     while 1: #game loop
 
-        print(neo.rect.x,"neoo")
 
         #white part -->
         cpt_frames += 1
