@@ -11,7 +11,7 @@ def start():
     cpt_framesbis = 0
 
 
-    for i in range(10):
+    '''for i in range(10):
         Thief(False)
         Hunter(False)
         Peon(False)
@@ -19,9 +19,23 @@ def start():
     for i in range(10):
         Thief(True)
         Hunter(True)
-        Peon(True)
+        Peon(True)'''
+
+    neo = Peon(True)
 
     while 1: #game loop
+
+
+        #neo script
+        mousex, mousey = pygame.mouse.get_pos()
+        if mousex>W_SCREEN*0.5:
+            neo.setDirection("right")
+        if mousex<W_SCREEN*0.5:
+            neo.setDirection("left")
+        if mousey>H_SCREEN*0.5:
+            neo.setDirection("down")
+        if mousey<H_SCREEN*0.5:
+            neo.setDirection("up")
 
 
         #white part -->
@@ -150,7 +164,7 @@ def start():
 
         # OK ? 
 
-        setCamera()
+        setCameraChar(neo)
         
 
         #if quit event, exit the game
@@ -196,6 +210,10 @@ def setCamera():
         camera.y -= 3
     if mousey > H_SCREEN*0.8:
         camera.y += 3
+
+def setCameraChar(char):
+    camera.x = char.pos.x - W_SURF/2
+    camera.y = char.pos.y - H_SURF/2
 
 def mapGeneration():
     for y in range(-11,12):
