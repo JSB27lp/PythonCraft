@@ -87,7 +87,7 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = self.pos
 
-        if not self.collideGround():
+        if self.collideBlock():
             self.pos -= self.vel + 0.5 * self.acc
             self.rect.midbottom = self.pos
 
@@ -122,8 +122,8 @@ class Character(CharacterAnimation):
             self.pink_minerals +=1
 
 
-    def collideGround(self):
-        collide = pygame.sprite.spritecollide(self, all_grounds, False)
+    def collideBlock(self):
+        collide = pygame.sprite.spritecollide(self, all_walls, False)
         return collide
  
     def collide(self):

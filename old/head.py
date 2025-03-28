@@ -38,20 +38,21 @@ idle_sheet_black = pygame.image.load("assets/idle_black.png").convert_alpha()
 run_sheets = [run_sheet_black,run_sheet]
 idle_sheets = [idle_sheet_black,idle_sheet]
 
-RATIO_TILE = 1.4
+TILE_SIZE = 32
+TILE_W = 32
+TILE_H = 32
+
 
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
-wall_cave_img = pygame.transform.scale(wall_cave_img,(wall_cave_img.get_width()/RATIO_TILE,wall_cave_img.get_height()/RATIO_TILE))
+wall_cave_img = pygame.transform.scale(wall_cave_img,(TILE_SIZE,TILE_SIZE))
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
-ground_cave_img = pygame.transform.scale(ground_cave_img,(ground_cave_img.get_width()/RATIO_TILE,ground_cave_img.get_height()/RATIO_TILE))
+ground_cave_img = pygame.transform.scale(ground_cave_img,(TILE_SIZE,TILE_SIZE))
 
 mineralSheet = pygame.image.load("assets/cave/gems.png").convert_alpha()
 
 chest_img = pygame.image.load("assets/chest.png").convert_alpha()
 
 #game variables
-TILE_W = wall_cave_img.get_width()/RATIO_TILE
-TILE_H = wall_cave_img.get_height()/RATIO_TILE
 
 all_sprites = pygame.sprite.Group()
 

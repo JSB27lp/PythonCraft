@@ -73,6 +73,10 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
     def display(self,camera):
 
+        #DEBUG
+        display_surf.blit(self.surf_square, (self.rect.x - camera.x -36, self.rect.y - camera.y -32))
+
+
         display_surf.blit(self.surf, (self.rect.x - camera.x -36, self.rect.y - camera.y -32))
      
 
