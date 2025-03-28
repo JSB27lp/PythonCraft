@@ -5,7 +5,8 @@ class Character(CharacterAnimation):
     
         self.main = main
 
-        self.pos = vec(x,y)
+        self.x = x
+        self.y = y
         self.cpt_frames = 0
         self.direction = ""
 
@@ -37,26 +38,21 @@ class Character(CharacterAnimation):
         super().__init__()
 
     def move(self,tiles):
-
         self.changeDirection()
                 
         if self.direction == "left":
-            self.pos.x -= VELOCITY
-            self.last_dir = "left"
+                self.x -= VELOCITY
 
         if self.direction == "right":
-            self.pos.x += VELOCITY
-            self.last_dir = "right"
+            self.x += VELOCITY
 
         if self.direction == "up":
-            self.pos.y -= VELOCITY
-            self.last_dir = "up"
+            self.y -= VELOCITY
 
         if self.direction == "down":
-            self.pos.y += VELOCITY
-            self.last_dir = "down"
+            self.y += VELOCITY
 
-        self.rect.midbottom = (self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
+        self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
 
         self.animate()
 
@@ -64,7 +60,7 @@ class Character(CharacterAnimation):
             self.cpt_frames+=1
             if self.cpt_frames>8:
                 if not self.main:
-                    direction = random.choice(["up", "down", "right", "left"])
+                    direction = random.choice(["up", "down", "right", "left",""])
                     self.direction = direction
                     self.cpt_frames = 0
 

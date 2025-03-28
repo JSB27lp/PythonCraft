@@ -8,22 +8,21 @@ class World():
     def __init__(self):
 
         self.tiles = []
+        for y in range(0,ROWS):
+            row = []
+            self.tiles.append(row)
 
         self.characters = []
 
-    def mapGeneration(self):
-        #main
-        character = Character(2,10,True,"Peon",True)
-        self.characters.append(character)
+        self.grounds = []
 
+    def genWorld(self):
         scale = 2
         octaves = 2
         lacunarity = 1.0
         persistence = 1.0
 
         for y in range(0,ROWS):
-            row = []
-            self.tiles.append(row)
             for x in range(0,COLS):
 
                 value = noise.pnoise2(x/scale,y/scale,octaves=octaves,persistence=persistence,lacunarity=lacunarity,repeatx=ROWS,repeaty=COLS,base=0)
@@ -31,15 +30,46 @@ class World():
                     tile = Tile(x,y,"wall")
                 else :
                     tile = Tile(x,y,"ground")
-
-                    if not random.randint(0,30):
-                        if len(self.characters)%2==0:
-                            character = Character(x,y,True,"Peon",False)
-                        else:
-                            character = Character(x,y,False,"Peon",False)
-                        self.characters.append(character)
+                    self.grounds.append(tile)
 
                 self.tiles[y].append(tile)
+
+    def genCharacters(self):
+        
+        #main
+        character = Character(2,10,True,"Peon",True)
+        self.characters.append(character)
+
+        for i in range(0,10):
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
+            self.characters.append(character)
+
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Peon",False)
+            self.characters.append(character)
+
+        for i in range(0,3):
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Hunter",False)
+            self.characters.append(character)
+
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",False)
+            self.characters.append(character)
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",False)
+            self.characters.append(character)
+
+            chance = random.randint(0,len(self.grounds))
+
+            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Thief",False)
+            self.characters.append(character)
 
     def repopMinerals(self):
         pass

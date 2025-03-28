@@ -5,7 +5,8 @@ from World.World import *
 #game variables
 world = World()
 
-world.mapGeneration()
+world.genWorld()
+world.genCharacters()
 
 #game loop
 while 1: 
