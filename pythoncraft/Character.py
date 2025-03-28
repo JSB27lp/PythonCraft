@@ -8,7 +8,7 @@ from pythoncraft.Player import *
 class Character(CharacterAnimation):
     def __init__(self,white,pos,specialColor):
         
-        self.pos = vec((random.randint(-10,10), random.randint(-10,10)))
+        self.pos = vec((random.randint(-250,250), random.randint(-100,100)))
         if pos != None:
             self.pos = pos
         self.white = white

@@ -3,7 +3,7 @@ from pythoncraft.Character import *
 def start(): 
 
     
-    neo = Peon(True,vec(-50,-50),True)
+    neo = Peon(True,vec(-0,-0),True)
 
 
 
@@ -17,17 +17,7 @@ def start():
     cpt_framesbis = 0
 
 
-    for i in range(2):
-        Thief(True)
-        Hunter(True)
-    for i in range(10):
-        Peon(True)
 
-    for i in range(2):
-        Thief(False)
-        Hunter(False)
-    for i in range(10):
-        Peon(False)
 
 
 
@@ -81,7 +71,7 @@ def start():
 
 
         #neo script
-       
+        '''
         mousex, mousey = pygame.mouse.get_pos()
         if mousex < W_SCREEN*0.4 :
             neo.setDirection("left")
@@ -92,7 +82,7 @@ def start():
             neo.setDirection("up")
         if mousey > H_SCREEN*0.6:
             neo.setDirection("down")
-
+        '''
 
         
 
@@ -197,7 +187,19 @@ def start():
         display_surf.fill((55,63,61))
 
         #move and display all sprites
-        for entity in all_sprites:
+        for entity in all_tiles:
+            entity.move()
+            entity.display(camera)
+        for entity in all_chests:
+            entity.move()
+            entity.display(camera)
+        for entity in all_pink_minerals:
+            entity.move()
+            entity.display(camera)
+        for entity in all_blue_minerals:
+            entity.move()
+            entity.display(camera)
+        for entity in all_characters:
             entity.move()
             entity.display(camera)
 
@@ -231,30 +233,37 @@ def setCameraChar(char):
     camera.y = char.pos.y - H_SURF/2
 
 def mapGeneration():
-    len_y = 4
-    len_x = 7
+    len_y = 7
+    len_x = 16
     for y in range(len_y*-1,len_y+1):
         for x in range(len_x*-1,len_x+1):
             #add grounds and walls
             chance = random.randint(0,3)
             tile = None
             if (not chance or y == len_y*-1 or y == len_y or x == len_x*-1 or x == len_x) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0):
-                tile = Tile((x*TILE_SIZE, y*TILE_SIZE), wall_cave_img)
+                tile = Tile((x*TILE_W, y*TILE_H), wall_cave_img)
                 all_walls.add(tile)
             else :
-                tile = Tile((x*TILE_SIZE, y*TILE_SIZE), ground_cave_img)
+                tile = Tile((x*TILE_W, y*TILE_H), ground_cave_img)
 
             #add minerals
             if not((not chance or y == len_y*-1 or y == len_y or x == len_x*-1 or x == len_x) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0)):
                 chance = random.randint(0,5)
                 if not chance :
-                    Mineral((x*TILE_SIZE, y*TILE_SIZE))
+                    Mineral((x*TILE_W, y*TILE_H))
+
+                #add characters
+                chance = random.randint(0,50)
+                if not chance :
+                    Thief(False)
+                    Hunter(False)
+                    Peon(False)
 
             #add chests
             if x == -1 and y == 0:
-                Chest((x*TILE_SIZE, y*TILE_SIZE),True)
+                Chest((x*TILE_W, y*TILE_H),True)
             if x == 1 and y == 0:
-                Chest((x*TILE_SIZE, y*TILE_SIZE),False)
+                Chest((x*TILE_W, y*TILE_H),False)
 
 
 
