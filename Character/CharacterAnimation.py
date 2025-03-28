@@ -23,7 +23,7 @@ class CharacterAnimation(pygame.sprite.Sprite):
         self.current_frame_run = 0 #that keeps track on the current time or current frame since last the index switched. 
 
     def animate(self):
-        if self.acc.x != 0:
+        if self.direction == "":
             self.runAnimation()
         else :
             self.idleAnimation()

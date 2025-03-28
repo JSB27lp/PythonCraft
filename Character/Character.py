@@ -7,8 +7,6 @@ class Character(CharacterAnimation):
         self.main = main
 
         self.pos = vec(x,y)
-        self.vel = vec(0,0)
-        self.acc = vec(0,0)
         self.cpt_frames = 0
         self.direction = ""
 
@@ -38,41 +36,35 @@ class Character(CharacterAnimation):
                 self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
     def move(self):
-        self.acc = vec(0,0)
 
         self.chooseDirection()
                 
         if self.direction == "left":
-            self.acc.x = -ACC
+            self.pos.x -= VELOCITY
             self.last_dir = "left"
 
         if self.direction == "right":
-            self.acc.x = ACC
+            self.pos.x += VELOCITY
             self.last_dir = "right"
 
         if self.direction == "up":
-            self.acc.y = -ACC
+            self.pos.y -= VELOCITY
             self.last_dir = "up"
 
         if self.direction == "down":
-            self.acc.y = ACC
+            self.pos.y += VELOCITY
             self.last_dir = "down"
 
         self.animate()
-                 
-        self.acc += self.vel * FRIC
-        self.vel += self.acc
-        self.pos += self.vel + 0.5 * self.acc
              
-        self.rect.midbottom = vec(self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
+        self.rect.midbottom = (self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
 
     def chooseDirection(self):
         self.cpt_frames += 1
         if self.cpt_frames > NB_FRAMES_SWITCH :
             if not self.main:
-                direction = random.choice(["up", "down", "right", "left"])
-                if not random.randint(0,3) : 
-                    self.setDirection(direction)
+                direction = random.choice(["up", "down", "right", "left",""])
+                self.direction = direction
 
         self.cpt_frames = 0
 

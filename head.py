@@ -11,8 +11,7 @@ pygame.mouse.set_visible(False) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
 
 #set global variable for character
-ACC = 0.5
-FRIC = -0.3
+VELOCITY = 1
 FPS = 60
 NB_FRAMES_SWITCH = 8
  
