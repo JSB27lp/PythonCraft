@@ -6,7 +6,7 @@ from pythoncraft.Chest import *
 from pythoncraft.Player import * 
 
 class Character(CharacterAnimation):
-    def __init__(self,white,pos,specialColor):
+    def __init__(self,white,pos,typestr,specialColor):
         
         self.pos = pos
 
@@ -22,22 +22,28 @@ class Character(CharacterAnimation):
 
         self.direction = ""
 
-        
-        chance = random.randint(0,999)
-        self.name = None
-        self.type = ""
-        if type(self) is Hunter:
-            self.name = Text("Hunter-"+str(chance), (0,255,0), 8, (0, 0))
-            self.type ="Hunter"
-        elif type(self) is Thief:
-            self.name = Text("Thief-"+str(chance), (255,0,0), 8, (0, 0))
-            self.type ="Thief"
-        elif type(self) is Peon:
-            self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
-            self.type ="Peon"
+        self.type = typestr
 
-        if specialColor:
-            self.name = Text("Peon-"+str(chance), (0,0,255), 8, (0, 0))
+        print(typestr+"new char")
+        
+        self.name = None
+        chance = random.randint(0,999)
+        if self.type == "Hunter":
+            if specialColor:
+                self.name = Text("Hunter-"+str(chance), (0,0,255), 8, (0, 0))
+            else:
+                self.name = Text("Hunter-"+str(chance), (0,255,0), 8, (0, 0))
+        elif self.type == "Thief":
+            if specialColor:
+                self.name = Text("Thief-"+str(chance), (0,0,255), 8, (0, 0))
+            else :
+                self.name = Text("Thief-"+str(chance), (255,0,0), 8, (0, 0))
+        elif self.type == "Peon":
+            if specialColor:
+                self.name = Text("Peon-"+str(chance), (0,0,255), 8, (0, 0))
+            else:
+                self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
+
 
         
 
@@ -137,15 +143,15 @@ class Character(CharacterAnimation):
 
 class Thief(Character):
     def __init__(self,white,pos,specialColor=False):
-        super().__init__(white,pos,specialColor)
+        super().__init__(white,pos,"Thief",specialColor)
 
 class Hunter(Character):
     def __init__(self,white,pos,specialColor=False):
-        super().__init__(white,pos,specialColor)
+        super().__init__(white,pos,"Hunter",specialColor)
 
 class Peon(Character):
     def __init__(self,white,pos,specialColor=False):
-        super().__init__(white,pos,specialColor)
+        super().__init__(white,pos,"Peon",specialColor)
 
 
      

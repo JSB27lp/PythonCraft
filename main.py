@@ -79,7 +79,12 @@ def start():
             neo.tryKill(character)'''
 
         for character in all_white_characters:
-            collide = pygame.sprite.spritecollide(character, all_black_characters,True)
+            if character.type=="Thief":
+                collide = pygame.sprite.spritecollide(character, all_black_characters,False)
+                for blk_char in collide :
+                    if blk_char.type=="Peon":
+                        blk_char.kill
+                
 
 
 
@@ -304,5 +309,5 @@ def mapGeneration():
 
 mapGeneration() 
 player  = Player()
-neo = Peon(True,vec(-0,-0),True)
+neo = Thief(True,vec(-0,-0),True)
 start()
