@@ -24,14 +24,6 @@ class Player(pygame.sprite.Sprite):
 
     def play(self):
         self.updateRect()
-
-        if self.collideCharacters() :
-            pass
-
         #display_surf.blit(self.surf, self.rect)
-
-    def collideCharacters(self):
-        collide = pygame.sprite.spritecollide(self, all_characters, False)
-        return collide
 
     

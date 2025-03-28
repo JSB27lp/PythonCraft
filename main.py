@@ -3,7 +3,7 @@ from pythoncraft.Character import *
 def start(): 
 
     
-    neo = Peon(True,vec(-50,-50))
+    neo = Peon(True,vec(-50,-50),True)
 
 
 
@@ -17,7 +17,7 @@ def start():
     cpt_framesbis = 0
 
 
-    '''for i in range(2):
+    for i in range(2):
         Thief(True)
         Hunter(True)
     for i in range(10):
@@ -27,7 +27,7 @@ def start():
         Thief(False)
         Hunter(False)
     for i in range(10):
-        Peon(False)'''
+        Peon(False)
 
 
 

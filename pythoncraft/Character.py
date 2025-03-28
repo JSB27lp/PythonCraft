@@ -6,7 +6,7 @@ from pythoncraft.Chest import *
 from pythoncraft.Player import * 
 
 class Character(CharacterAnimation):
-    def __init__(self,white,pos):
+    def __init__(self,white,pos,specialColor):
         
         self.pos = vec((random.randint(-10,10), random.randint(-10,10)))
         if pos != None:
@@ -36,6 +36,9 @@ class Character(CharacterAnimation):
         elif type(self) is Peon:
             self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
             self.type ="Peon"
+
+        if specialColor:
+            self.name = Text("Peon-"+str(chance), (0,255,0), 8, (0, 0))
 
         
 
@@ -133,16 +136,17 @@ class Character(CharacterAnimation):
 
 
 class Thief(Character):
-    def __init__(self,white,pos=None):
-        super().__init__(white,pos)
+    def __init__(self,white,pos=None,specialColor=False):
+        super().__init__(white,pos,specialColor)
 
 class Hunter(Character):
-    def __init__(self,white,pos=None):
-        super().__init__(white,pos)
+    def __init__(self,white,pos=None,specialColor=False):
+        super().__init__(white,pos,specialColor)
 
 class Peon(Character):
-    def __init__(self,white,pos=None):
-        super().__init__(white,pos)
+    def __init__(self,white,pos=None,specialColor=False):
+        super().__init__(white,pos,specialColor)
+
 
      
 
