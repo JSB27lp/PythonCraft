@@ -38,7 +38,7 @@ class Character(CharacterAnimation):
             self.type ="Peon"
 
         if specialColor:
-            self.name = Text("Peon-"+str(chance), (0,255,0), 8, (0, 0))
+            self.name = Text("Peon-"+str(chance), (0,0,255), 8, (0, 0))
 
         
 
