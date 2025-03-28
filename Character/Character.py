@@ -37,7 +37,7 @@ class Character(CharacterAnimation):
 
     def move(self):
 
-        self.chooseDirection()
+        self.changeDirection()
                 
         if self.direction == "left":
             self.pos.x -= VELOCITY
@@ -59,14 +59,13 @@ class Character(CharacterAnimation):
              
         self.rect.midbottom = (self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
 
-    def chooseDirection(self):
-        self.cpt_frames += 1
-        if self.cpt_frames > NB_FRAMES_SWITCH :
-            if not self.main:
-                direction = random.choice(["up", "down", "right", "left",""])
-                self.direction = direction
-
-        self.cpt_frames = 0
+    def changeDirection(self):
+            self.cpt_frames+=1
+            if self.cpt_frames>8:
+                if not self.main:
+                    direction = random.choice(["up", "down", "right", "left",""])
+                    self.direction = direction
+                    self.cpt_frames = 0
 
     def testCollision(self):
         pass
