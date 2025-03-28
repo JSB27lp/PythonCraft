@@ -26,7 +26,7 @@ class Player(pygame.sprite.Sprite):
         self.updateRect()
 
         if self.collideCharacters() :
-            print("collision")
+            pass
 
         #display_surf.blit(self.surf, self.rect)
 

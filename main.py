@@ -3,7 +3,7 @@ from pythoncraft.Character import *
 def start(): 
 
     
-    neo = Peon(True)
+    neo = Peon(True,vec(200,200))
 
 
 
@@ -17,15 +17,18 @@ def start():
     cpt_framesbis = 0
 
 
-    for i in range(10):
-        Thief(False)
-        Hunter(False)
-        Peon(False)
-
-    for i in range(10):
+    for i in range(2):
         Thief(True)
         Hunter(True)
+    for i in range(10):
         Peon(True)
+
+    for i in range(2):
+        Thief(False)
+        Hunter(False)
+    for i in range(10):
+        Peon(False)
+
 
 
     while 1: #game loop
@@ -60,12 +63,12 @@ def start():
         #<-- black part
 
 
+        '''for character_ in characters :
+            collide_list = character_.collide()
+            for character in collide_list : 
+                character_.tryKill(character)'''
         
 
-        
-        '''collide_list = neo.collide()
-        for character in collide_list : 
-            neo.tryKill(character)'''
 
     #########################################
     #script for controlling your algo characters#
@@ -96,7 +99,9 @@ def start():
 
 
 
-
+        collide_list = neo.collide()
+        for character in collide_list : 
+            neo.tryKill(character)
 
 
 
