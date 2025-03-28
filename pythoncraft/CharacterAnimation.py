@@ -74,14 +74,16 @@ class CharacterAnimation(pygame.sprite.Sprite):
     def display(self,camera):
 
         display_surf.blit(self.surf, (self.rect.x - camera.x -36, self.rect.y - camera.y -32))
+     
 
-        display_surf.blit(self.name.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -10))        
+     
+        #info display personnage
+        display_surf.blit(self.name.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -10))   
 
-        if self.type == "Peon":
-            exp_txt = Text(str(self.blue_minerals), (0,255,255), 6, (0, 0))
-            display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -15))   
+        exp_txt = Text(str(self.blue_minerals), (0,255,255), 6, (0, 0))
+        display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -15))   
 
-            exp_txt = Text(str(self.pink_minerals), (255,20,147), 6, (0, 0))
-            display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -20))
+        exp_txt = Text(str(self.pink_minerals), (255,20,147), 6, (0, 0))
+        display_surf.blit(exp_txt.surf, (self.rect.x - camera.x -15, self.rect.y - camera.y -20))
 
 

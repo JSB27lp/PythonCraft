@@ -73,14 +73,13 @@ def start():
         '''
         
 
-        '''
-        collide_list = neo.collide()
+        
+        '''collide_list = neo.collide()
         for character in collide_list : 
             neo.tryKill(character)'''
 
-
-
-
+        for character in all_white_characters:
+            collide = pygame.sprite.spritecollide(character, all_black_characters,True)
 
 
 
@@ -96,7 +95,6 @@ def start():
 
         #repop requirement
         if nb_minerals < 10 :
-            print("nombre de minerais inf à 5")
 
             #choisi un ground au hasard
             chance_ground = random.randint(0,len(all_grounds))
