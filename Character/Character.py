@@ -2,8 +2,7 @@ from Character.CharacterAnimation import *
 
 class Character(CharacterAnimation):
     def __init__(self,x,y,white,type,main):
-        super().__init__(x,y)
-
+    
         self.main = main
 
         self.pos = vec(x,y)
@@ -35,6 +34,8 @@ class Character(CharacterAnimation):
             else:
                 self.name = Text("Peon-"+str(chance), (255,255,255), 8, (0, 0))
 
+        super().__init__()
+
     def move(self,tiles):
 
         self.changeDirection()
@@ -55,14 +56,6 @@ class Character(CharacterAnimation):
             self.pos.y += VELOCITY
             self.last_dir = "down"
 
-        x = int(self.pos.x)
-        y = int(self.pos.y)
-        if x<len(tiles) :
-            if tiles[x][y].type=="wall":
-                self.white = not self.white
-            else :
-                self.white = not self.white
-
         self.rect.midbottom = (self.pos.x*TILE_SIZE+OFFSET_X,self.pos.y*TILE_SIZE+OFFSET_Y)
 
         self.animate()
@@ -71,7 +64,7 @@ class Character(CharacterAnimation):
             self.cpt_frames+=1
             if self.cpt_frames>8:
                 if not self.main:
-                    direction = random.choice(["up", "down", "right", "left",""])
+                    direction = random.choice(["up", "down", "right", "left"])
                     self.direction = direction
                     self.cpt_frames = 0
 

@@ -13,7 +13,7 @@ class World():
 
     def mapGeneration(self):
         #main
-        character = Character(0,0,True,"Peon",True)
+        character = Character(2,10,True,"Peon",True)
         self.characters.append(character)
 
         scale = 2
@@ -33,7 +33,10 @@ class World():
                     tile = Tile(x,y,"ground")
 
                     if not random.randint(0,30):
-                        character = Character(x,y,True,"Peon",False)
+                        if len(self.characters)%2==0:
+                            character = Character(x,y,True,"Peon",False)
+                        else:
+                            character = Character(x,y,False,"Peon",False)
                         self.characters.append(character)
 
                 self.tiles[y].append(tile)
