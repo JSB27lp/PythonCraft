@@ -12,7 +12,9 @@ world.genCharacters()
 while 1: 
 
     for character in world.characters:
-        character.move(world.tiles)
+        character.updateTile(world.tiles)
+        character.pathFinding()
+        character.update()
         character.testMinerals()
         character.testChests()
 

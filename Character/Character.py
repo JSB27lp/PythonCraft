@@ -10,6 +10,8 @@ class Character(CharacterAnimation):
         self.cpt_frames = 0
         self.direction = ""
 
+        self.tile=None
+
         self.white = white
 
         self.blue_minerals = 0
@@ -37,10 +39,15 @@ class Character(CharacterAnimation):
 
         super().__init__()
 
-    def move(self,tiles):
-        self.changeDirection()
+    def updateTile(self,tiles):
+        a = int(self.x)
+        b = int(self.y)
+        
+        self.tile = tiles[a][b]
+
+    def update(self):
                 
-        if self.direction == "left":
+        '''if self.direction == "left":
                 self.x -= VELOCITY
 
         if self.direction == "right":
@@ -50,13 +57,13 @@ class Character(CharacterAnimation):
             self.y -= VELOCITY
 
         if self.direction == "down":
-            self.y += VELOCITY
+            self.y += VELOCITY'''
 
         self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
 
         self.animate()
 
-    def changeDirection(self):
+    def pathFinding(self):
             self.cpt_frames+=1
             if self.cpt_frames>8:
                 if not self.main:
