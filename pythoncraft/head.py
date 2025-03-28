@@ -48,8 +48,8 @@ mineralSheet = pygame.image.load("assets/cave/gems.png").convert_alpha()
 chest_img = pygame.image.load("assets/chest.png").convert_alpha()
 
 #game variables
-TILE_W = wall_cave_img.get_width()/1.2
-TILE_H = wall_cave_img.get_height()/1.2
+TILE_W = wall_cave_img.get_width()/1.1
+TILE_H = wall_cave_img.get_height()/1.1
 
 all_sprites = pygame.sprite.Group()
 

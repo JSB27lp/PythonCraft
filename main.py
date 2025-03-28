@@ -1,9 +1,9 @@
 from pythoncraft.Character import *  
+import noise
 
 def start(): 
 
     
-    neo = Peon(True,vec(-0,-0),True)
 
 
 
@@ -238,26 +238,36 @@ def mapGeneration():
     for y in range(len_y*-1,len_y+1):
         for x in range(len_x*-1,len_x+1):
             #add grounds and walls
-            chance = random.randint(0,3)
+
+            scale = 2#13
+            octaves = 10#7
+            lacunarity = 1.0
+            persistence = 1.0
+            value = noise.pnoise2(x/scale,y/scale,octaves=octaves,persistence=persistence,lacunarity=lacunarity,repeatx=len_y+1,repeaty=len_x+1,base=0)
+            chance = 1
+            if value <0 :
+                chance = 0
+
+            #add tiles
             tile = None
             if (not chance or y == len_y*-1 or y == len_y or x == len_x*-1 or x == len_x) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0):
                 tile = Tile((x*TILE_W, y*TILE_H), wall_cave_img)
                 all_walls.add(tile)
             else :
                 tile = Tile((x*TILE_W, y*TILE_H), ground_cave_img)
-
-            #add minerals
-            if not((not chance or y == len_y*-1 or y == len_y or x == len_x*-1 or x == len_x) and (x!=0 or y!=0) and (x!=1 or y!=0) and (x!=-1 or y!=0)):
-                chance = random.randint(0,5)
-                if not chance :
+                
+                #add minerals
+                chance_ = random.randint(0,5)
+                if not chance_ :
                     Mineral((x*TILE_W, y*TILE_H))
 
                 #add characters
-                chance = random.randint(0,50)
-                if not chance :
-                    Thief(False)
-                    Hunter(False)
-                    Peon(False)
+                chance_ = random.randint(0,50)
+                if not chance_ :
+                    Thief(False,(x*TILE_W, y*TILE_H))
+                    Hunter(False,(x*TILE_W, y*TILE_H))
+                    Peon(False,(x*TILE_W, y*TILE_H))
+
 
             #add chests
             if x == -1 and y == 0:
@@ -270,4 +280,5 @@ def mapGeneration():
 
 mapGeneration() 
 player  = Player()
+neo = Peon(True,vec(-0,-0),True)
 start()

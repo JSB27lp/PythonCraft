@@ -8,9 +8,8 @@ from pythoncraft.Player import *
 class Character(CharacterAnimation):
     def __init__(self,white,pos,specialColor):
         
-        self.pos = vec((random.randint(-250,250), random.randint(-100,100)))
-        if pos != None:
-            self.pos = pos
+        self.pos = pos
+        
         self.white = white
         
         super().__init__() 
@@ -136,15 +135,15 @@ class Character(CharacterAnimation):
 
 
 class Thief(Character):
-    def __init__(self,white,pos=None,specialColor=False):
+    def __init__(self,white,pos,specialColor=False):
         super().__init__(white,pos,specialColor)
 
 class Hunter(Character):
-    def __init__(self,white,pos=None,specialColor=False):
+    def __init__(self,white,pos,specialColor=False):
         super().__init__(white,pos,specialColor)
 
 class Peon(Character):
-    def __init__(self,white,pos=None,specialColor=False):
+    def __init__(self,white,pos,specialColor=False):
         super().__init__(white,pos,specialColor)
 
 
