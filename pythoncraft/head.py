@@ -38,7 +38,7 @@ idle_sheet_black = pygame.image.load("assets/idle_black.png").convert_alpha()
 run_sheets = [run_sheet_black,run_sheet]
 idle_sheets = [idle_sheet_black,idle_sheet]
 
-RATIO_TILE = 1.1
+RATIO_TILE = 1.4
 
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 wall_cave_img = pygame.transform.scale(wall_cave_img,(wall_cave_img.get_width()/RATIO_TILE,wall_cave_img.get_height()/RATIO_TILE))

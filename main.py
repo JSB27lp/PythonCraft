@@ -80,10 +80,10 @@ def start():
 
         for character in all_white_characters:
             if character.type=="Thief":
-                collide = pygame.sprite.spritecollide(character, all_black_characters,False)
-                for blk_char in collide :
+                collide = pygame.sprite.spritecollide(character, all_black_characters,True)
+                '''for blk_char in collide :
                     if blk_char.type=="Peon":
-                        blk_char.kill
+                        blk_char.kill'''
                 
 
 
@@ -248,8 +248,8 @@ def setCameraChar(char):
     camera.y = char.pos.y - H_SURF/2
 
 def mapGeneration():
-    len_y = 4
-    len_x = 9
+    len_y = 6
+    len_x = 13
     for y in range(len_y*-1,len_y+1):
         for x in range(len_x*-1,len_x+1):
             #add grounds and walls
@@ -279,7 +279,7 @@ def mapGeneration():
                     Mineral((x*TILE_W, y*TILE_H))
 
 
-                ratio_char = 16 #plus cest haut moins  ya des characters
+                ratio_char = 30 #plus cest haut moins  ya des characters
                 #add characters
                 chance_ = random.randint(0,ratio_char*3)
                 if not chance_ :
