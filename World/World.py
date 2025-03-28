@@ -27,7 +27,7 @@ class World():
             for x in range(0,COLS):
 
                 value = noise.pnoise2(x/scale,y/scale,octaves=octaves,persistence=persistence,lacunarity=lacunarity,repeatx=ROWS,repeaty=COLS,base=0)
-                if value <0 :
+                if value <0 or x==0 or y==0 or x==COLS-1 or y==ROWS-1:
                     tile = Tile(x,y,"wall")
                 else :
                     tile = Tile(x,y,"ground")
