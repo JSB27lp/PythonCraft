@@ -1,8 +1,14 @@
 from pythoncraft.Character import *  
 
 def start(): 
+
+    
+    neo = Peon(True)
+
+
+
     #########################################
-    #script for controlling your characters#
+    #script for controlling algo characters#
     #########################################
 
 
@@ -11,7 +17,7 @@ def start():
     cpt_framesbis = 0
 
 
-    '''for i in range(10):
+    for i in range(10):
         Thief(False)
         Hunter(False)
         Peon(False)
@@ -19,25 +25,15 @@ def start():
     for i in range(10):
         Thief(True)
         Hunter(True)
-        Peon(True)'''
+        Peon(True)
 
-    neo = Peon(True)
 
     while 1: #game loop
 
 
-        #neo script
-        mousex, mousey = pygame.mouse.get_pos()
-        if mousex>W_SCREEN*0.5:
-            neo.setDirection("right")
-        if mousex<W_SCREEN*0.5:
-            neo.setDirection("left")
-        if mousey>H_SCREEN*0.5:
-            neo.setDirection("down")
-        if mousey<H_SCREEN*0.5:
-            neo.setDirection("up")
 
-
+        
+        
         #white part -->
         cpt_frames += 1
         if cpt_frames > 10 :
@@ -49,9 +45,6 @@ def start():
 
             cpt_frames = 0
 
-        '''collide_list = neo.collide()
-        for character in collide_list : 
-            neo.tryKill(character)'''
         #<-- white part
 
         #black part -->
@@ -64,11 +57,18 @@ def start():
                     character.setDirection(direction)
 
             cpt_framesbis = 0
-        #<-- part part
+        #<-- black part
 
+
+        
+
+        
+        '''collide_list = neo.collide()
+        for character in collide_list : 
+            neo.tryKill(character)'''
 
     #########################################
-    #script for controlling yours characters#
+    #script for controlling your algo characters#
     #########################################
         
 
@@ -77,9 +77,21 @@ def start():
 
 
 
+        #neo script
+        mousex, mousey = pygame.mouse.get_pos()
+        
 
 
-
+        mousex, mousey = pygame.mouse.get_pos()
+        if mousex < W_SCREEN*0.4 :
+            neo.setDirection("left")
+        if mousex > W_SCREEN*0.6:
+            neo.setDirection("right")
+        
+        if mousey < H_SCREEN*0.4 :
+            neo.setDirection("up")
+        if mousey > H_SCREEN*0.6:
+            neo.setDirection("down")
 
 
 
