@@ -233,8 +233,8 @@ def setCameraChar(char):
     camera.y = char.pos.y - H_SURF/2
 
 def mapGeneration():
-    len_y = 7
-    len_x = 16
+    len_y = 4
+    len_x = 9
     for y in range(len_y*-1,len_y+1):
         for x in range(len_x*-1,len_x+1):
             #add grounds and walls
@@ -255,14 +255,14 @@ def mapGeneration():
                 all_walls.add(tile)
             else :
                 tile = Tile((x*TILE_W, y*TILE_H), ground_cave_img)
-                
+
                 #add minerals
-                chance_ = random.randint(0,5)
-                if not chance_ :
+                chance_ = random.randint(0,3)
+                if not chance_ and not (x == -1 and y == 0) and not(x == 1 and y == 0):
                     Mineral((x*TILE_W, y*TILE_H))
 
                 #add characters
-                chance_ = random.randint(0,50)
+                chance_ = random.randint(0,5)
                 if not chance_ :
                     Thief(False,(x*TILE_W, y*TILE_H))
                     Hunter(False,(x*TILE_W, y*TILE_H))
