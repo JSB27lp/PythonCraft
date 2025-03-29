@@ -2,30 +2,7 @@ from head import *
 from Util.Text import *  
 from World.World import *
 
-#game variables
-world = World()
-
-world.genWorld()
-world.genChests()
-world.genCharacters()
-
-for character in world.characters:
-    character.updateTile(world.tiles)
-
-#game loop
-while 1: 
-
-    for character in world.characters:
-        character.pathFinding()
-        character.move(world)
-        character.action(world)
-        
-        character.testChests()
-
-    world.repopMinerals()
-    
-
-    #joystick controls
+def joystickControls(world):
     if pygame.joystick.get_count()>0:
 
         axis_x = joysticks[0].get_axis(0)
@@ -42,6 +19,7 @@ while 1:
         else:
             world.characters[0].direction = ""
 
+def keyboardControls(world):
     #keyboard controls
     events = pygame.event.get()
     for event in events:
@@ -73,6 +51,33 @@ while 1:
                 world.characters[0].direction = "up"
             if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
                 world.characters[0].direction = "down"
+
+#game variables
+world = World()
+
+world.genWorld()
+world.genChests()
+world.genCharacters()
+
+for character in world.characters:
+    character.updateTile(world.tiles)
+
+#game loop
+while 1: 
+
+    for character in world.characters:
+        character.pathFinding()
+        character.move(world)
+        character.action(world)
+        
+        character.testChests()
+
+    world.repopMinerals()
+    
+
+    joystickControls(world)
+    keyboardControls(world)
+
 
 
     #display fill
