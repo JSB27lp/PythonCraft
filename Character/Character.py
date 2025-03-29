@@ -82,7 +82,7 @@ class Character(CharacterAnimation):
                     self.direction = direction
                     self.cpt_frames = 0
 
-    def testMinerals(self):
+    def testMinerals(self,minerals):
         if self.tile.mineral != None:
             if self.tile.mineral.type == "blue":
                 self.blue_minerals+=1
@@ -90,6 +90,7 @@ class Character(CharacterAnimation):
                 self.pink_minerals+=1
 
             self.tile.mineral.kill()
+            minerals.remove(self.tile.mineral)
             self.tile.mineral = None
 
     def testChests(self):

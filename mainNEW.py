@@ -20,7 +20,7 @@ while 1:
 
         character.update(world.tiles)
 
-        character.testMinerals()
+        character.testMinerals(world.minerals)
 
         character.testChests()
 
