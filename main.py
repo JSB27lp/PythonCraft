@@ -54,7 +54,30 @@ def keyboardControls(world):
 
 def mouseControls(world):
     mousex, mousey = pygame.mouse.get_pos()
-    print(mousex, mousey)
+
+    ratio = W_SCREEN/W_SURF
+
+    mousex/=ratio
+    mousey/=ratio
+
+    mousex-=OFFSET_X
+    mousey-=OFFSET_Y
+
+    mousex/=TILE_SIZE
+    mousey/=TILE_SIZE
+
+    mousex=round(mousex)
+    mousey=round(mousey)
+
+    if mousex >-1 and mousex < COLS and mousey >-1 and mousey < ROWS :
+        
+        print(mousex, mousey)
+
+        cost = np.ones((5, 10), dtype=np.int8, order="F")
+        graph = tcod.path.SimpleGraph(cost=cost, cardinal=2, diagonal=3)
+        pf = tcod.path.Pathfinder(graph)
+        pf.add_root((2, 4))
+        pf.path_to((3, 7)).tolist()
 
 #game variables
 world = World()
