@@ -57,7 +57,7 @@ class World():
         
         #main
         chance = random.randint(0,len(self.grounds))
-        character = Thief(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",True)
+        character = Hunter(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",True)
         self.characters.append(character)
 
         for i in range(0,4):

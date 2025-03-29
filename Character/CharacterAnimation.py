@@ -22,21 +22,38 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
         self.last_dir = ""
 
+        self.touched = False
+        self.touched_current_frame = 0
+
+        self.color_white = self.white
+
     def animate(self):
         self.runAnimation()
         if self.direction == "":
             self.idleAnimation()
+            
+        if self.touched:
+            self.oscillateAnimation()
+
+    def oscillateAnimation(self):
+        self.touched_current_frame+=1
+        self.color_white = not self.color_white
+
+        if self.touched_current_frame > 120 :
+            self.touched = False
+            self.touched_current_frame = 0
+            self.color_white = self.white
 
     def idleAnimation(self):
         if self.last_dir == "right" :
-            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+            self.surf = idle_sheets[self.color_white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
         elif self.last_dir == "left" :
-            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+            self.surf = idle_sheets[self.color_white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
             self.surf = pygame.transform.flip(self.surf, True, False)
         elif self.last_dir == "up" :
-            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*2,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+            self.surf = idle_sheets[self.color_white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*2,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
         elif self.last_dir == "down" :
-            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*1,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+            self.surf = idle_sheets[self.color_white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*1,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
 
         self.current_frame_idle += 1
         if self.current_frame_idle >= NB_FRAMES_SWITCH:
@@ -47,17 +64,17 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
     def runAnimation(self):
         if self.direction == "right" :
-            self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.surf = run_sheets[self.color_white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
             self.last_dir = "right"
         elif self.direction == "left" :
-            self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.surf = run_sheets[self.color_white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
             self.last_dir = "left"
             self.surf = pygame.transform.flip(self.surf, True, False)
         elif self.direction == "up" :
-            self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*2,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.surf = run_sheets[self.color_white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*2,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
             self.last_dir = "up"
         elif self.direction == "down" :
-            self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*1,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.surf = run_sheets[self.color_white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*1,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
             self.last_dir = "down"
 
         self.current_frame_run += 1

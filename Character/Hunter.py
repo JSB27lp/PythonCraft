@@ -19,9 +19,13 @@ class Hunter(Character):
                         character.blue_minerals = 0
                         character.pink_minerals = 0
 
+                        character.touched = True
+
                     if not self.white and character.white:
                         self.blue_minerals+=character.blue_minerals
                         self.pink_minerals+=character.pink_minerals
 
                         character.blue_minerals = 0
                         character.pink_minerals = 0
+
+                        character.touched = True

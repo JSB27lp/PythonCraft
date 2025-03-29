@@ -14,6 +14,9 @@ class CharacterAnimation(pygame.sprite.Sprite):
 
         self.last_dir = "right"
 
+        self.touched = False
+        self.touched_current_frame = 0
+
         self.index_frame_idle = 0 #that keeps track on the current index of the image list.
         self.current_frame_idle = 0 #that keeps track on the current time or current frame since last the index switched. 
 
@@ -34,6 +37,20 @@ class CharacterAnimation(pygame.sprite.Sprite):
             self.runAnimation()
         else :
             self.idleAnimation()
+
+        self.oscillateAnimation()
+
+    def oscillateAnimation(self):
+        print("fn")
+        if self.touched:
+            print("touched")
+            self.touched_current_frame+=1
+            self.white = not self.white
+
+            if self.touched_current_frame > 120 :
+                print("touched off")
+                self.touched = False
+                self.touched_current_frame = 0
 
     def runAnimation(self):
         if self.last_dir == "right" :
