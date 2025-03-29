@@ -45,10 +45,18 @@ class Character(CharacterAnimation):
         self.tile = tiles[b][a]
 
     def newPosition(self,x_gain,y_gain):
-        velo = 0.1
+        velo = 0.15
+        friction = 0.33
 
         self.x = self.x + (velo*x_gain) 
         self.y = self.y + (velo*y_gain) 
+
+
+
+
+
+
+
 
     def move(self,world):
         if self.direction == "left":
