@@ -32,11 +32,23 @@ while 1:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYUP: 
+            if event.key == pygame.K_q or event.key == pygame.K_LEFT :
+                if world.characters[0].direction == "left":
+                    world.characters[0].direction = ""
+            elif event.key == pygame.K_d  or event.key == pygame.K_RIGHT :
+                if world.characters[0].direction == "right" :
+                    world.characters[0].direction = ""
+            elif event.key == pygame.K_z or event.key == pygame.K_UP :
+                if world.characters[0].direction == "up" :
+                    world.characters[0].direction = ""
+            elif event.key == pygame.K_s  or event.key == pygame.K_DOWN:
+                if world.characters[0].direction == "down" :
+                    world.characters[0].direction = ""
         if event.type == pygame.KEYDOWN:  
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
-
             if event.key == pygame.K_q or event.key == pygame.K_LEFT :
                 world.characters[0].direction = "left"
             if event.key == pygame.K_d  or event.key == pygame.K_RIGHT :
@@ -45,8 +57,7 @@ while 1:
                 world.characters[0].direction = "up"
             if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
                 world.characters[0].direction = "down"
-            if event.key == pygame.K_SPACE:
-                world.characters[0].direction = ""
+
 
     #display fill
     display_surf.fill((55,63,61))
