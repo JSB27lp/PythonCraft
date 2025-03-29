@@ -80,7 +80,7 @@ def start():
 
         for character in all_white_characters:
             if character.type=="Thief":
-                collide = pygame.sprite.spritecollide(character, all_black_characters,True)
+                collide = pygame.sprite.spritecollide(character, all_black_characters,False )
                 '''for blk_char in collide :
                     if blk_char.type=="Peon":
                         blk_char.kill'''

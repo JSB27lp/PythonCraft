@@ -40,7 +40,7 @@ class World():
         character = Character(2,10,True,"Peon",True)
         self.characters.append(character)
 
-        for i in range(0,10):
+        for i in range(0,5):
             chance = random.randint(0,len(self.grounds))
 
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
@@ -51,7 +51,7 @@ class World():
             character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Peon",False)
             self.characters.append(character)
 
-        for i in range(0,3):
+        for i in range(0,2):
             chance = random.randint(0,len(self.grounds))
 
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Hunter",False)

@@ -14,7 +14,7 @@ pygame.display.set_caption("PythonCraft")
 #set global variable for character
 ACC = 0.5
 FRIC = -0.3
-FPS = 60
+FPS = 165
 NB_FRAMES_SWITCH = 8
  
 #set screen

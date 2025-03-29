@@ -12,9 +12,9 @@ world.genCharacters()
 while 1: 
 
     for character in world.characters:
-        character.updateTile(world.tiles)
+
         character.pathFinding()
-        character.update()
+        character.update(world.tiles)
         character.testMinerals()
         character.testChests()
 
@@ -39,6 +39,8 @@ while 1:
                 world.characters[0].direction = "up"
             if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
                 world.characters[0].direction = "down"
+            if event.key == pygame.K_SPACE:
+                world.characters[0].direction = ""
 
     #display fill
     display_surf.fill((55,63,61))
