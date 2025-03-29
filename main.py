@@ -54,12 +54,6 @@ def keyboardControls(world):
 
 def mouseControls(world):
     mousex, mousey = pygame.mouse.get_pos()
-    mousex-=OFFSET_X
-    mousey-=OFFSET_Y
-    mousex/=TILE_SIZE
-    mousey/=TILE_SIZE
-    mousex=round(mousex)
-    mousey=round(mousey)
     print(mousex, mousey)
 
 #game variables

@@ -1,4 +1,6 @@
 from Character.CharacterAnimation import *
+import numpy as np
+import tcod
 
 class Character(CharacterAnimation):
     def __init__(self,x,y,white,type,main):
@@ -93,6 +95,13 @@ class Character(CharacterAnimation):
                     direction = random.choice(["up", "down", "right", "left",""])
                     self.direction = direction
                     self.cpt_frames = 0
+
+
+                    cost = np.ones((5, 10), dtype=np.int8, order="F")
+                    graph = tcod.path.SimpleGraph(cost=cost, cardinal=2, diagonal=3)
+                    pf = tcod.path.Pathfinder(graph)
+                    pf.add_root((2, 4))
+                    pf.path_to((3, 7)).tolist()
 
     def testChests(self):
         if self.tile.chest != None:
