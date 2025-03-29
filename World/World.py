@@ -17,11 +17,10 @@ class World():
         self.characters = []
 
         self.grounds = []
-        self.minerals = []
 
     def genWorld(self):
         scale = 2
-        octaves = 2
+        octaves = 1
         lacunarity = 1.0
         persistence = 1.0
 
@@ -29,7 +28,7 @@ class World():
             for x in range(0,COLS):
 
                 value = noise.pnoise2(x/scale,y/scale,octaves=octaves,persistence=persistence,lacunarity=lacunarity,repeatx=ROWS,repeaty=COLS,base=0)
-                if value <0 or x==0 or y==0 or x==COLS-1 or y==ROWS-1:
+                if value <0 or x==0 or y==0 or x==COLS-1 or y==ROWS-1 and not(x==(COLS-1)/2 or y==(ROWS-1)/2):
                     tile = Tile(x,y,"wall")
                 else :
                     tile = Tile(x,y,"ground")
@@ -37,7 +36,6 @@ class World():
 
                     if not random.randint(0,20) :
                         tile.mineral = Mineral(x,y)
-                        self.minerals.append(tile.mineral)
 
                 self.tiles[y].append(tile)
 
@@ -57,7 +55,7 @@ class World():
         
         #main
         chance = random.randint(0,len(self.grounds))
-        character = Hunter(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",True)
+        character = Peon((COLS-1)/2,(ROWS-1)/2,True,"Peon",True)
         self.characters.append(character)
 
         for i in range(0,4):
@@ -87,10 +85,9 @@ class World():
             self.characters.append(character)
 
     def repopMinerals(self):
-        if len(self.minerals)<25:
+        if len(all_minerals)<25:
             chance = random.randint(0,len(self.grounds))
-            if self.grounds[chance].mineral == None:
+            if self.grounds[chance].mineral == None: # IndexError: list index out of range
                 mineral = Mineral(self.grounds[chance].x,self.grounds[chance].y)
-                self.minerals.append(mineral)
                 self.grounds[chance].mineral = mineral
 

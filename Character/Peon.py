@@ -17,5 +17,4 @@ class Peon(Character):
                 self.pink_minerals+=1
 
             self.tile.mineral.kill()
-            world.minerals.remove(self.tile.mineral)
             self.tile.mineral = None

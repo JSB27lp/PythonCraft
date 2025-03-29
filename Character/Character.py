@@ -57,9 +57,8 @@ class Character(CharacterAnimation):
     def move(self,world):
         self.acc = vec(0,0)
 
-        acceleration = 0.04
+        acceleration = 0.1
         friction = -10*acceleration
-        print(friction)
                 
         if self.direction == "left":
             self.acc.x = -acceleration
