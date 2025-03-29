@@ -14,9 +14,6 @@ class Tile(pygame.sprite.Sprite):
 
         if self.type == "ground":
             self.surf = ground_cave_img
-        
-            if not random.randint(0,10) :
-                self.mineral = Mineral(x,y)
         else :
             self.surf = wall_cave_img
 

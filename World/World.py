@@ -32,6 +32,9 @@ class World():
                     tile = Tile(x,y,"ground")
                     self.grounds.append(tile)
 
+                    if not random.randint(0,10) :
+                        tile.mineral = Mineral(x,y)
+
                 self.tiles[y].append(tile)
 
     def genCharacters(self):
@@ -42,32 +45,27 @@ class World():
 
         for i in range(0,5):
             chance = random.randint(0,len(self.grounds))
-
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-
             character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Peon",False)
             self.characters.append(character)
 
         for i in range(0,2):
             chance = random.randint(0,len(self.grounds))
-
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Hunter",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-
             character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",False)
             self.characters.append(character)
-            chance = random.randint(0,len(self.grounds))
 
+            chance = random.randint(0,len(self.grounds))
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-
             character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Thief",False)
             self.characters.append(character)
 
