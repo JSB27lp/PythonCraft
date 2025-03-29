@@ -5,6 +5,7 @@ import sys
 
 #init app
 pygame.init()
+joysticks = [pygame.joystick.Joystick(x) for x in range(pygame.joystick.get_count())]
 vec = pygame.math.Vector2 #2 for two dimensional
 FramePerSec = pygame.time.Clock()
 pygame.mouse.set_visible(False) # Hide cursor here
@@ -12,6 +13,7 @@ pygame.display.set_caption("PythonCraft")
 
 #set global variable
 FPS = 60
+DEADZONE = 0.3#for joystick
 NB_FRAMES_SWITCH = 8
 
 OFFSET_X = 16

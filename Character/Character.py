@@ -46,19 +46,12 @@ class Character(CharacterAnimation):
 
     def newPosition(self,x_gain,y_gain):
         velo = 0.15
-        friction = 0.45
 
         self.x = self.x + (velo*x_gain) 
         self.y = self.y + (velo*y_gain) 
 
-
-
-
-
-
-
-
     def move(self,world):
+
         if self.direction == "left":
             self.newPosition(-1,0)
             self.updateTile(world.tiles)

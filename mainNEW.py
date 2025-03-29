@@ -23,10 +23,26 @@ while 1:
         character.testChests()
 
     world.repopMinerals()
+    
 
-    #print(world.characters[0].tile.x,world.characters[0].tile.y)
+    #joystick controls
+    if pygame.joystick.get_count()>0:
 
-    #game controls
+        axis_x = joysticks[0].get_axis(0)
+        axis_y = joysticks[0].get_axis(1)
+
+        if axis_x < -1 * DEADZONE:
+            world.characters[0].direction = "left"
+        elif axis_x > DEADZONE:
+            world.characters[0].direction = "right"
+        elif axis_y < -1 * DEADZONE:
+            world.characters[0].direction = "up"
+        elif axis_y > DEADZONE:
+            world.characters[0].direction = "down"
+        else:
+            world.characters[0].direction = ""
+
+    #keyboard controls
     events = pygame.event.get()
     for event in events:
         if event.type == pygame.QUIT:
@@ -84,6 +100,7 @@ while 1:
 
     #framerate
     FramePerSec.tick(FPS)
+
 
 
 
