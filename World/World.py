@@ -77,5 +77,5 @@ class World():
             if self.grounds[chance].mineral == None:
                 mineral = Mineral(self.grounds[chance].x,self.grounds[chance].y)
                 self.minerals.append(mineral)
-                self.tiles[self.grounds[chance].y][self.grounds[chance].x] = mineral
+                self.tiles[self.grounds[chance].y][self.grounds[chance].x].mineral = mineral
 
