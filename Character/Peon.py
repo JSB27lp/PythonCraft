@@ -6,9 +6,9 @@ class Peon(Character):
         super().__init__(x,y,white,type,main)
 
     def action(self,world):
-        self.testMinerals(world)
+        self.testMinerals()
 
-    def testMinerals(self,world):
+    def testMinerals(self):
 
         if self.tile.mineral != None:
             if self.tile.mineral.type == "blue":
