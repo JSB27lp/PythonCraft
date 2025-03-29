@@ -14,7 +14,9 @@ class World():
 
         self.characters = []
 
+        #pour faciliter la gestion interne de world
         self.grounds = []
+        self.minerals = []
 
     def genWorld(self):
         scale = 2
@@ -34,6 +36,7 @@ class World():
 
                     if not random.randint(0,10) :
                         tile.mineral = Mineral(x,y)
+                        self.minerals.append(tile.mineral)
 
                 self.tiles[y].append(tile)
 
@@ -70,5 +73,8 @@ class World():
             self.characters.append(character)
 
     def repopMinerals(self):
-        pass
+        if len(self.minerals)<25:
+            chance = random.randint(0,len(self.grounds))
+            mineral = Mineral(self.grounds[chance].x,self.grounds[chance].y)
+            self.minerals.append(mineral)
 
