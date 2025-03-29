@@ -52,6 +52,16 @@ def keyboardControls(world):
             if event.key == pygame.K_s  or event.key == pygame.K_DOWN:
                 world.characters[0].direction = "down"
 
+def mouseControls(world):
+    mousex, mousey = pygame.mouse.get_pos()
+    mousex-=OFFSET_X
+    mousey-=OFFSET_Y
+    mousex/=TILE_SIZE
+    mousey/=TILE_SIZE
+    mousex=round(mousex)
+    mousey=round(mousey)
+    print(mousex, mousey)
+
 #game variables
 world = World()
 
@@ -77,7 +87,7 @@ while 1:
 
     joystickControls(world)
     keyboardControls(world)
-
+    mouseControls(world)
 
 
     #display fill

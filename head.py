@@ -24,7 +24,7 @@ ROWS = 21
 COLS = 39
  
 #set screen
-screen = pygame.display.set_mode((0, 0))
+screen = pygame.display.set_mode((1920, 1080))
 infoObject = pygame.display.Info()
 W_SCREEN = infoObject.current_w
 H_SCREEN = infoObject.current_h

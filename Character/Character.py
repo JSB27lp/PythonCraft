@@ -48,12 +48,6 @@ class Character(CharacterAnimation):
         b = round(self.y)
         self.tile = tiles[b][a]
 
-    def newPosition(self,x_gain,y_gain):
-        velo = 0.15
-
-        self.x = self.x + (velo*x_gain) 
-        self.y = self.y + (velo*y_gain) 
-
     def move(self,world):
         self.acc = vec(0,0)
 
@@ -91,36 +85,6 @@ class Character(CharacterAnimation):
             self.y = self.pos.y
             self.updateTile(world.tiles)
             self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
-
-    def moveOLD(self,world):
-
-        if self.direction == "left":
-            self.newPosition(-1,0)
-            self.updateTile(world.tiles)
-            if self.tile.type=="wall":
-                self.newPosition(1,0)
-
-        if self.direction == "right":
-            self.newPosition(1,0)
-            self.updateTile(world.tiles)
-            if self.tile.type=="wall":
-                self.newPosition(-1,0)
-
-        if self.direction == "up":
-            self.newPosition(0,-1)
-            self.updateTile(world.tiles)
-            if self.tile.type=="wall":
-                self.newPosition(0,1)
-
-        if self.direction == "down":
-            self.newPosition(0,1)
-            self.updateTile(world.tiles)
-            if self.tile.type=="wall":
-                self.newPosition(0,-1)
-
-        self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
-
-        self.animate()
 
     def pathFinding(self):
             self.cpt_frames+=1
