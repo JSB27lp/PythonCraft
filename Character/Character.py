@@ -10,6 +10,10 @@ class Character(CharacterAnimation):
         self.cpt_frames = 0
         self.direction = ""
 
+        self.pos = vec(x,y)
+        self.vel = vec(0,0)
+        self.acc = vec(0,0)
+
         self.tile=None
 
         self.white = white
@@ -51,6 +55,45 @@ class Character(CharacterAnimation):
         self.y = self.y + (velo*y_gain) 
 
     def move(self,world):
+        self.acc = vec(0,0)
+
+        acceleration = 0.03
+        friction = -6*acceleration
+        print(friction)
+                
+        if self.direction == "left":
+            self.acc.x = -acceleration
+            self.last_dir = "left"
+        if self.direction == "right":
+            self.acc.x = acceleration
+            self.last_dir = "right"
+        if self.direction == "up":
+            self.acc.y = -acceleration
+            self.last_dir = "up"
+        if self.direction == "down":
+            self.acc.y = acceleration
+            self.last_dir = "down"
+
+        self.animate()
+                 
+        self.acc += self.vel * friction
+        self.vel += self.acc
+        self.pos += self.vel + 0.5 * self.acc
+             
+        self.x = self.pos.x
+        self.y = self.pos.y
+        self.updateTile(world.tiles)
+        self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
+
+        if self.tile.type=="wall":
+            self.pos -= self.vel + 0.5 * self.acc
+
+            self.x = self.pos.x
+            self.y = self.pos.y
+            self.updateTile(world.tiles)
+            self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
+
+    def moveOLD(self,world):
 
         if self.direction == "left":
             self.newPosition(-1,0)
