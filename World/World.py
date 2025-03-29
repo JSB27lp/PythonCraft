@@ -58,7 +58,7 @@ class World():
         character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",True)
         self.characters.append(character)
 
-        for i in range(0,5):
+        for i in range(0,4):
             chance = random.randint(0,len(self.grounds))
             character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
             self.characters.append(character)
