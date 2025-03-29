@@ -8,6 +8,9 @@ world = World()
 world.genWorld()
 world.genCharacters()
 
+for character in world.characters:
+    character.updateTile(world.tiles)
+
 #game loop
 while 1: 
 
@@ -18,6 +21,7 @@ while 1:
         character.update(world.tiles)
 
         character.testMinerals()
+
         character.testChests()
 
     world.repopMinerals()

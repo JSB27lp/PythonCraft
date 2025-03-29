@@ -10,11 +10,12 @@ class Tile(pygame.sprite.Sprite):
         
         self.type = type
 
+        self.mineral = None
+
         if self.type == "ground":
             self.surf = ground_cave_img
-            
-            #gen minerals
-            if not random.randint(0,5) :
+        
+            if not random.randint(0,10) :
                 self.mineral = Mineral(x,y)
         else :
             self.surf = wall_cave_img
@@ -22,10 +23,6 @@ class Tile(pygame.sprite.Sprite):
         self.rect = self.surf.get_rect(center = (x*TILE_SIZE+OFFSET_X,y*TILE_SIZE+OFFSET_Y))
 
         all_tiles.add(self)
-
-
-
-
 
     def display(self):
         display_surf.blit(self.surf, self.rect)

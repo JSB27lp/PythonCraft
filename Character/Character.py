@@ -44,16 +44,6 @@ class Character(CharacterAnimation):
         b = round(self.y)
         self.tile = tiles[b][a]
 
-        if self.main:
-            print("b,a :")
-            print(b,a)
-
-            print("self.x,self.y :")
-            print(self.x,self.y)
-
-            print("self.tile.x,self.tile.y :")
-            print(self.tile.x,self.tile.y)
-
     def update(self,tiles):
                 
         if self.direction == "left":
@@ -93,7 +83,14 @@ class Character(CharacterAnimation):
                     self.cpt_frames = 0
 
     def testMinerals(self):
-        pass
+        if self.tile.mineral != None:
+            if self.tile.mineral.type == "blue":
+                self.blue_minerals+=1
+            if self.tile.mineral.type == "pink":
+                self.pink_minerals+=1
+
+            self.tile.mineral.kill()
+            self.tile.mineral = None
 
     def testChests(self):
         pass
