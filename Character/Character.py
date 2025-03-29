@@ -44,29 +44,29 @@ class Character(CharacterAnimation):
         b = round(self.y)
         self.tile = tiles[b][a]
 
-    def update(self,tiles):
+    def move(self,world):
                 
         if self.direction == "left":
             self.x -= VELOCITY
-            self.updateTile(tiles)
+            self.updateTile(world.tiles)
             if self.tile.type=="wall":
                 self.x += VELOCITY
 
         if self.direction == "right":
             self.x += VELOCITY
-            self.updateTile(tiles)
+            self.updateTile(world.tiles)
             if self.tile.type=="wall":
                 self.x -= VELOCITY
 
         if self.direction == "up":
             self.y -= VELOCITY
-            self.updateTile(tiles)
+            self.updateTile(world.tiles)
             if self.tile.type=="wall":
                 self.y += VELOCITY
 
         if self.direction == "down":
             self.y += VELOCITY
-            self.updateTile(tiles)
+            self.updateTile(world.tiles)
             if self.tile.type=="wall":
                 self.y -= VELOCITY
 
@@ -81,17 +81,6 @@ class Character(CharacterAnimation):
                     direction = random.choice(["up", "down", "right", "left",""])
                     self.direction = direction
                     self.cpt_frames = 0
-
-    def testMinerals(self,minerals):
-        if self.tile.mineral != None:
-            if self.tile.mineral.type == "blue":
-                self.blue_minerals+=1
-            if self.tile.mineral.type == "pink":
-                self.pink_minerals+=1
-
-            self.tile.mineral.kill()
-            minerals.remove(self.tile.mineral)
-            self.tile.mineral = None
 
     def testChests(self):
         if self.tile.chest != None:
@@ -108,3 +97,6 @@ class Character(CharacterAnimation):
 
                 self.blue_minerals = 0
                 self.pink_minerals = 0
+
+    def action(self):
+        pass

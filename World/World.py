@@ -1,6 +1,8 @@
 import noise
 from head import *
-from Character.Character import *
+from Character.Peon import *
+from Character.Hunter import *
+from Character.Thief import *
 from World.Tile import *
 
 
@@ -55,33 +57,33 @@ class World():
         
         #main
         chance = random.randint(0,len(self.grounds))
-        character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",True)
+        character = Thief(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",True)
         self.characters.append(character)
 
         for i in range(0,4):
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
+            character = Peon(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Peon",False)
+            character = Peon(self.grounds[chance].x,self.grounds[chance].y,True,"Peon",False)
             self.characters.append(character)
 
         for i in range(0,2):
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Hunter",False)
+            character = Hunter(self.grounds[chance].x,self.grounds[chance].y,False,"Hunter",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",False)
+            character = Hunter(self.grounds[chance].x,self.grounds[chance].y,True,"Hunter",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",False)
+            character = Thief(self.grounds[chance].x,self.grounds[chance].y,False,"Thief",False)
             self.characters.append(character)
 
             chance = random.randint(0,len(self.grounds))
-            character = Character(self.grounds[chance].x,self.grounds[chance].y,True,"Thief",False)
+            character = Thief(self.grounds[chance].x,self.grounds[chance].y,True,"Thief",False)
             self.characters.append(character)
 
     def repopMinerals(self):

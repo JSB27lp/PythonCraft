@@ -17,8 +17,9 @@ while 1:
 
     for character in world.characters:
         character.pathFinding()
-        character.update(world.tiles)
-        character.testMinerals(world.minerals)
+        character.move(world)
+        character.action(world)
+        
         character.testChests()
 
     world.repopMinerals()
