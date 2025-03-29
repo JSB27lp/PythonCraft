@@ -42,7 +42,8 @@ class World():
     def genCharacters(self):
         
         #main
-        character = Character(2,10,True,"Peon",True)
+        chance = random.randint(0,len(self.grounds))
+        character = Character(self.grounds[chance].x,self.grounds[chance].y,False,"Peon",True)
         self.characters.append(character)
 
         for i in range(0,5):
