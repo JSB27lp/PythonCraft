@@ -44,32 +44,36 @@ class Character(CharacterAnimation):
         b = round(self.y)
         self.tile = tiles[b][a]
 
-    def move(self,world):
+    def newPosition(self,x_gain,y_gain):
         velo = 0.1
-                
+
+        self.x = self.x + (velo*x_gain) 
+        self.y = self.y + (velo*y_gain) 
+
+    def move(self,world):
         if self.direction == "left":
-            self.x -= velo
+            self.newPosition(-1,0)
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.x += velo
+                self.newPosition(1,0)
 
         if self.direction == "right":
-            self.x += velo
+            self.newPosition(1,0)
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.x -= velo
+                self.newPosition(-1,0)
 
         if self.direction == "up":
-            self.y -= velo
+            self.newPosition(0,-1)
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.y += velo
+                self.newPosition(0,1)
 
         if self.direction == "down":
-            self.y += velo
+            self.newPosition(0,1)
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.y -= velo
+                self.newPosition(0,-1)
 
         self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
 
