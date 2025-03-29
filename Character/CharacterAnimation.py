@@ -8,6 +8,9 @@ class CharacterAnimation(pygame.sprite.Sprite):
         self.index_frame_run = 0 #that keeps track on the current index of the image list.
         self.current_frame_run = 0 #that keeps track on the current time or current frame since last the index switched. 
 
+        self.index_frame_idle = 0 #that keeps track on the current index of the image list.
+        self.current_frame_idle = 0 #that keeps track on the current time or current frame since last the index switched. 
+
         all_characters.add(self)
             
         self.surf = self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
@@ -17,19 +20,45 @@ class CharacterAnimation(pygame.sprite.Sprite):
         
         self.rect = self.surf_square.get_rect(midbottom = (0,0))
 
+        self.last_dir = ""
+
     def animate(self):
         self.runAnimation()
+        if self.direction == "":
+            self.idleAnimation()
+
+    def idleAnimation(self):
+        if self.last_dir == "right" :
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+        elif self.last_dir == "left" :
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*0,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+            self.surf = pygame.transform.flip(self.surf, True, False)
+        elif self.last_dir == "up" :
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*2,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+        elif self.last_dir == "down" :
+            self.surf = idle_sheets[self.white].subsurface((idle_sheet_white.get_width()/4*self.index_frame_idle,idle_sheet_white.get_height()/3*1,idle_sheet_white.get_width()/4,idle_sheet_white.get_height()/3))
+
+        self.current_frame_idle += 1
+        if self.current_frame_idle >= NB_FRAMES_SWITCH:
+            self.current_frame_idle = 0
+            self.index_frame_idle += 1
+            if self.index_frame_idle >= 4 :
+                self.index_frame_idle = 0  
 
     def runAnimation(self):
         if self.direction == "right" :
             self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.last_dir = "right"
         elif self.direction == "left" :
             self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*0,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.last_dir = "left"
             self.surf = pygame.transform.flip(self.surf, True, False)
         elif self.direction == "up" :
             self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*2,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.last_dir = "up"
         elif self.direction == "down" :
             self.surf = run_sheets[self.white].subsurface((run_sheet_white.get_width()/8*self.index_frame_run,run_sheet_white.get_height()/3*1,run_sheet_white.get_width()/8,run_sheet_white.get_height()/3))
+            self.last_dir = "down"
 
         self.current_frame_run += 1
         if self.current_frame_run >= NB_FRAMES_SWITCH:

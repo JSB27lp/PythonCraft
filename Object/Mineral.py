@@ -12,7 +12,7 @@ class Mineral(pygame.sprite.Sprite):
 
         self.rect = self.surf.get_rect(center = (x*TILE_SIZE+OFFSET_X,y*TILE_SIZE+OFFSET_Y))
 
-        all_objects.add(self)
+        all_minerals.add(self)
 
     def display(self):
         display_surf.blit(self.surf, self.rect)

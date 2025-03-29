@@ -184,6 +184,19 @@ def start():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == pygame.KEYUP: 
+                if event.key == pygame.K_q or event.key == pygame.K_LEFT :
+                    if neo.direction == "left":
+                        neo.direction = ""
+                elif event.key == pygame.K_d  or event.key == pygame.K_RIGHT :
+                    if neo.direction == "right" :
+                        neo.direction = ""
+                elif event.key == pygame.K_z or event.key == pygame.K_UP :
+                    if neo.direction == "up" :
+                        neo.direction = ""
+                elif event.key == pygame.K_s  or event.key == pygame.K_DOWN:
+                    if neo.direction == "down" :
+                        neo.direction = ""
             if event.type == pygame.KEYDOWN:  
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()

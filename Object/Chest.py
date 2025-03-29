@@ -10,7 +10,7 @@ class Chest(pygame.sprite.Sprite):
         self.surf = chest_img
         self.rect = self.surf.get_rect(center = (x*TILE_SIZE+OFFSET_X,y*TILE_SIZE+OFFSET_Y))
 
-        all_objects.add(self)
+        all_chests.add(self)
 
         self.blue_minerals = 0
         self.pink_minerals = 0

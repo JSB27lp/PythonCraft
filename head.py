@@ -10,10 +10,15 @@ FramePerSec = pygame.time.Clock()
 pygame.mouse.set_visible(False) # Hide cursor here
 pygame.display.set_caption("PythonCraft")
 
-#set global variable for character
-VELOCITY = 0.1
+#set global variable
 FPS = 60
 NB_FRAMES_SWITCH = 8
+
+OFFSET_X = 16
+OFFSET_Y = 20
+
+ROWS = 21
+COLS = 39
  
 #set screen
 screen = pygame.display.set_mode((1920, 1080))
@@ -35,13 +40,6 @@ run_sheets = [run_sheet_black,run_sheet_white]
 idle_sheets = [idle_sheet_black,idle_sheet_white]
 
 TILE_SIZE = 16
-
-OFFSET_X = 16
-OFFSET_Y = 20
-
-ROWS = 21
-COLS = 39
-
 wall_cave_img = pygame.image.load("assets/cave/wall.png").convert_alpha()
 wall_cave_img = pygame.transform.scale(wall_cave_img,(TILE_SIZE,TILE_SIZE))
 ground_cave_img = pygame.image.load("assets/cave/ground.png").convert_alpha()
@@ -54,7 +52,8 @@ chest_img = pygame.image.load("assets/chest.png").convert_alpha()
 #sprites groups
 all_characters = pygame.sprite.Group()
 all_tiles = pygame.sprite.Group()
-all_objects = pygame.sprite.Group()
+all_minerals = pygame.sprite.Group()
+all_chests = pygame.sprite.Group()
 
 
 

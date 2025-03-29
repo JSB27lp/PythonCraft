@@ -45,30 +45,31 @@ class Character(CharacterAnimation):
         self.tile = tiles[b][a]
 
     def move(self,world):
+        velo = 0.1
                 
         if self.direction == "left":
-            self.x -= VELOCITY
+            self.x -= velo
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.x += VELOCITY
+                self.x += velo
 
         if self.direction == "right":
-            self.x += VELOCITY
+            self.x += velo
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.x -= VELOCITY
+                self.x -= velo
 
         if self.direction == "up":
-            self.y -= VELOCITY
+            self.y -= velo
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.y += VELOCITY
+                self.y += velo
 
         if self.direction == "down":
-            self.y += VELOCITY
+            self.y += velo
             self.updateTile(world.tiles)
             if self.tile.type=="wall":
-                self.y -= VELOCITY
+                self.y -= velo
 
         self.rect.midbottom = (self.x*TILE_SIZE+OFFSET_X,self.y*TILE_SIZE+OFFSET_Y)
 

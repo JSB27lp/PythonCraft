@@ -65,7 +65,9 @@ while 1:
     #display sprites
     for entity in all_tiles:
         entity.display()
-    for entity in all_objects:
+    for entity in all_minerals:
+        entity.display()
+    for entity in all_chests:
         entity.display()
     for entity in all_characters:
         entity.display()
