@@ -6,6 +6,7 @@ from World.World import *
 world = World()
 
 world.genWorld()
+world.genChests()
 world.genCharacters()
 
 for character in world.characters:
@@ -15,13 +16,9 @@ for character in world.characters:
 while 1: 
 
     for character in world.characters:
-        
         character.pathFinding()
-
         character.update(world.tiles)
-
         character.testMinerals(world.minerals)
-
         character.testChests()
 
     world.repopMinerals()

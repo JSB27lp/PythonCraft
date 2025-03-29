@@ -39,6 +39,18 @@ class World():
 
                 self.tiles[y].append(tile)
 
+    def genChests(self):
+        
+        chance1 = random.randint(0,len(self.grounds))
+        if self.grounds[chance1].chest == None:
+            chest = Chest(self.grounds[chance1].x,self.grounds[chance1].y,True)
+            self.grounds[chance1].chest = chest
+
+        chance2 = random.randint(0,len(self.grounds))
+        if self.grounds[chance2].chest == None:
+            chest = Chest(self.grounds[chance2].x,self.grounds[chance2].y,False)
+            self.grounds[chance2].chest = chest
+
     def genCharacters(self):
         
         #main
@@ -78,5 +90,5 @@ class World():
             if self.grounds[chance].mineral == None:
                 mineral = Mineral(self.grounds[chance].x,self.grounds[chance].y)
                 self.minerals.append(mineral)
-                self.tiles[self.grounds[chance].y][self.grounds[chance].x].mineral = mineral
+                self.grounds[chance].mineral = mineral
 

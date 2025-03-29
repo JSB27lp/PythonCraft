@@ -1,5 +1,6 @@
 from head import *
 from Object.Mineral import *
+from Object.Chest import *
 
 class Tile(pygame.sprite.Sprite):
     def __init__(self,x,y,type):
@@ -11,6 +12,8 @@ class Tile(pygame.sprite.Sprite):
         self.type = type
 
         self.mineral = None
+
+        self.chest = None
 
         if self.type == "ground":
             self.surf = ground_cave_img
