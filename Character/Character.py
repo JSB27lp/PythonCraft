@@ -94,4 +94,17 @@ class Character(CharacterAnimation):
             self.tile.mineral = None
 
     def testChests(self):
-        pass
+        if self.tile.chest != None:
+            if self.white and self.tile.chest.white:
+                self.tile.chest.blue_minerals += self.blue_minerals
+                self.tile.chest.pink_minerals += self.pink_minerals
+
+                self.blue_minerals = 0
+                self.pink_minerals = 0
+            
+            if not self.white and not self.tile.chest.white:
+                self.tile.chest.blue_minerals += self.blue_minerals
+                self.tile.chest.pink_minerals += self.pink_minerals
+
+                self.blue_minerals = 0
+                self.pink_minerals = 0
