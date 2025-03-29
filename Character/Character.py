@@ -40,9 +40,19 @@ class Character(CharacterAnimation):
         super().__init__()
 
     def updateTile(self,tiles):
-        a = int(self.x)
-        b = int(self.y)
+        a = round(self.x)
+        b = round(self.y)
         self.tile = tiles[b][a]
+
+        if self.main:
+            print("b,a :")
+            print(b,a)
+
+            print("self.x,self.y :")
+            print(self.x,self.y)
+
+            print("self.tile.x,self.tile.y :")
+            print(self.tile.x,self.tile.y)
 
     def update(self,tiles):
                 

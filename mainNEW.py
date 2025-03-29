@@ -12,13 +12,17 @@ world.genCharacters()
 while 1: 
 
     for character in world.characters:
-
+        
         character.pathFinding()
+
         character.update(world.tiles)
+
         character.testMinerals()
         character.testChests()
 
     world.repopMinerals()
+
+    #print(world.characters[0].tile.x,world.characters[0].tile.y)
 
     #game controls
     events = pygame.event.get()
